@@ -1,0 +1,4 @@
+TODo
+    Check if meal list contain "Spagetti","Pizza","Fish and Chips","Rice and chicken","Salmon","Roasted Beef","Sushi"
+    Create Meals Lest contains 7 meal
+    Chceck if meal->name properties contain on of meal in meal list.
