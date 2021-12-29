@@ -1,4 +1,4 @@
-#include "meal.h"
+#include "../headers/meal.h"
 
 Meal::Meal(Meals meal) {
     switch (meal){

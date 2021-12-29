@@ -157,14 +157,14 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "MealApp::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-MealApp-Debug-37b411b98da7580fc8b1.json",
+					"jsonFile" : "target-MealApp-Debug-a6e972e16c0270218b22.json",
 					"name" : "MealApp",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 4,
 					"id" : "MyTests::@36f028580bb02cc8272a",
-					"jsonFile" : "target-MyTests-Debug-4438de10cf36ead59cbb.json",
+					"jsonFile" : "target-MyTests-Debug-2c808dd78ec602d98cb5.json",
 					"name" : "MyTests",
 					"projectIndex" : 0
 				},

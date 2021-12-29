@@ -182,32 +182,32 @@ MyTests/fast:
 	cd /mntpliki_mic/C++/MealApp/build && $(MAKE) -f test/CMakeFiles/MyTests.dir/build.make test/CMakeFiles/MyTests.dir/build
 .PHONY : MyTests/fast
 
-__/meal.o: __/meal.cpp.o
+__/sources/meal.o: __/sources/meal.cpp.o
 
-.PHONY : __/meal.o
+.PHONY : __/sources/meal.o
 
 # target to build an object file
-__/meal.cpp.o:
-	cd /mntpliki_mic/C++/MealApp/build && $(MAKE) -f test/CMakeFiles/MyTests.dir/build.make test/CMakeFiles/MyTests.dir/__/meal.cpp.o
-.PHONY : __/meal.cpp.o
+__/sources/meal.cpp.o:
+	cd /mntpliki_mic/C++/MealApp/build && $(MAKE) -f test/CMakeFiles/MyTests.dir/build.make test/CMakeFiles/MyTests.dir/__/sources/meal.cpp.o
+.PHONY : __/sources/meal.cpp.o
 
-__/meal.i: __/meal.cpp.i
+__/sources/meal.i: __/sources/meal.cpp.i
 
-.PHONY : __/meal.i
+.PHONY : __/sources/meal.i
 
 # target to preprocess a source file
-__/meal.cpp.i:
-	cd /mntpliki_mic/C++/MealApp/build && $(MAKE) -f test/CMakeFiles/MyTests.dir/build.make test/CMakeFiles/MyTests.dir/__/meal.cpp.i
-.PHONY : __/meal.cpp.i
+__/sources/meal.cpp.i:
+	cd /mntpliki_mic/C++/MealApp/build && $(MAKE) -f test/CMakeFiles/MyTests.dir/build.make test/CMakeFiles/MyTests.dir/__/sources/meal.cpp.i
+.PHONY : __/sources/meal.cpp.i
 
-__/meal.s: __/meal.cpp.s
+__/sources/meal.s: __/sources/meal.cpp.s
 
-.PHONY : __/meal.s
+.PHONY : __/sources/meal.s
 
 # target to generate assembly for a file
-__/meal.cpp.s:
-	cd /mntpliki_mic/C++/MealApp/build && $(MAKE) -f test/CMakeFiles/MyTests.dir/build.make test/CMakeFiles/MyTests.dir/__/meal.cpp.s
-.PHONY : __/meal.cpp.s
+__/sources/meal.cpp.s:
+	cd /mntpliki_mic/C++/MealApp/build && $(MAKE) -f test/CMakeFiles/MyTests.dir/build.make test/CMakeFiles/MyTests.dir/__/sources/meal.cpp.s
+.PHONY : __/sources/meal.cpp.s
 
 mytests.o: mytests.cpp.o
 
@@ -250,9 +250,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... test"
 	@echo "... MyTests"
-	@echo "... __/meal.o"
-	@echo "... __/meal.i"
-	@echo "... __/meal.s"
+	@echo "... __/sources/meal.o"
+	@echo "... __/sources/meal.i"
+	@echo "... __/sources/meal.s"
 	@echo "... mytests.o"
 	@echo "... mytests.i"
 	@echo "... mytests.s"

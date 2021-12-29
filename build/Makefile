@@ -245,32 +245,32 @@ MyTests/fast:
 	$(MAKE) -f test/CMakeFiles/MyTests.dir/build.make test/CMakeFiles/MyTests.dir/build
 .PHONY : MyTests/fast
 
-meal.o: meal.cpp.o
+sources/meal.o: sources/meal.cpp.o
 
-.PHONY : meal.o
+.PHONY : sources/meal.o
 
 # target to build an object file
-meal.cpp.o:
-	$(MAKE) -f CMakeFiles/MealApp.dir/build.make CMakeFiles/MealApp.dir/meal.cpp.o
-.PHONY : meal.cpp.o
+sources/meal.cpp.o:
+	$(MAKE) -f CMakeFiles/MealApp.dir/build.make CMakeFiles/MealApp.dir/sources/meal.cpp.o
+.PHONY : sources/meal.cpp.o
 
-meal.i: meal.cpp.i
+sources/meal.i: sources/meal.cpp.i
 
-.PHONY : meal.i
+.PHONY : sources/meal.i
 
 # target to preprocess a source file
-meal.cpp.i:
-	$(MAKE) -f CMakeFiles/MealApp.dir/build.make CMakeFiles/MealApp.dir/meal.cpp.i
-.PHONY : meal.cpp.i
+sources/meal.cpp.i:
+	$(MAKE) -f CMakeFiles/MealApp.dir/build.make CMakeFiles/MealApp.dir/sources/meal.cpp.i
+.PHONY : sources/meal.cpp.i
 
-meal.s: meal.cpp.s
+sources/meal.s: sources/meal.cpp.s
 
-.PHONY : meal.s
+.PHONY : sources/meal.s
 
 # target to generate assembly for a file
-meal.cpp.s:
-	$(MAKE) -f CMakeFiles/MealApp.dir/build.make CMakeFiles/MealApp.dir/meal.cpp.s
-.PHONY : meal.cpp.s
+sources/meal.cpp.s:
+	$(MAKE) -f CMakeFiles/MealApp.dir/build.make CMakeFiles/MealApp.dir/sources/meal.cpp.s
+.PHONY : sources/meal.cpp.s
 
 # Help Target
 help:
@@ -291,9 +291,9 @@ help:
 	@echo "... gtest_main"
 	@echo "... gtest"
 	@echo "... MyTests"
-	@echo "... meal.o"
-	@echo "... meal.i"
-	@echo "... meal.s"
+	@echo "... sources/meal.o"
+	@echo "... sources/meal.i"
+	@echo "... sources/meal.s"
 .PHONY : help
 
 

@@ -7,10 +7,10 @@ add_subdirectory(googletest)
 add_subdirectory(test)
 file(GLOB_RECURSE fileCollection "./*.cpp")
 set(Headers 
-    meal.h
-    meals_list.h
+    ./headers/meal.h
+    ./headers/meals_list.h
     )
 set(Sources 
-    meal.cpp
+    ./sources/meal.cpp
     )
 add_library(${This} STATIC ${Sources} ${Headers})

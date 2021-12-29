@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/mntpliki_mic/C++/MealApp/meal.cpp" "/mntpliki_mic/C++/MealApp/build/CMakeFiles/MealApp.dir/meal.cpp.o"
+  "/mntpliki_mic/C++/MealApp/sources/meal.cpp" "/mntpliki_mic/C++/MealApp/build/CMakeFiles/MealApp.dir/sources/meal.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

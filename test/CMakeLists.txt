@@ -3,7 +3,7 @@ set(This MyTests)
 
 set(Sources
     mytests.cpp
-    ./../meal.cpp
+    ./../sources/meal.cpp
 )
 
 add_executable(${This} ${Sources})

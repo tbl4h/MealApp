@@ -1,5 +1,5 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/MealApp.dir/meal.cpp.o"
+  "CMakeFiles/MealApp.dir/sources/meal.cpp.o"
   "libMealApp.a"
   "libMealApp.pdb"
 )

@@ -1,8 +1,8 @@
 [
 {
   "directory": "/mntpliki_mic/C++/MealApp/build",
-  "command": "/bin/x86_64-linux-gnu-g++-10    -g   -o CMakeFiles/MealApp.dir/meal.cpp.o -c /mntpliki_mic/C++/MealApp/meal.cpp",
-  "file": "/mntpliki_mic/C++/MealApp/meal.cpp"
+  "command": "/bin/x86_64-linux-gnu-g++-10    -g   -o CMakeFiles/MealApp.dir/sources/meal.cpp.o -c /mntpliki_mic/C++/MealApp/sources/meal.cpp",
+  "file": "/mntpliki_mic/C++/MealApp/sources/meal.cpp"
 },
 {
   "directory": "/mntpliki_mic/C++/MealApp/build/googletest/googlemock",
@@ -31,7 +31,7 @@
 },
 {
   "directory": "/mntpliki_mic/C++/MealApp/build/test",
-  "command": "/bin/x86_64-linux-gnu-g++-10   -isystem /mntpliki_mic/C++/MealApp/googletest/googletest/include -isystem /mntpliki_mic/C++/MealApp/googletest/googletest  -g   -o CMakeFiles/MyTests.dir/__/meal.cpp.o -c /mntpliki_mic/C++/MealApp/meal.cpp",
-  "file": "/mntpliki_mic/C++/MealApp/meal.cpp"
+  "command": "/bin/x86_64-linux-gnu-g++-10   -isystem /mntpliki_mic/C++/MealApp/googletest/googletest/include -isystem /mntpliki_mic/C++/MealApp/googletest/googletest  -g   -o CMakeFiles/MyTests.dir/__/sources/meal.cpp.o -c /mntpliki_mic/C++/MealApp/sources/meal.cpp",
+  "file": "/mntpliki_mic/C++/MealApp/sources/meal.cpp"
 }
 ]

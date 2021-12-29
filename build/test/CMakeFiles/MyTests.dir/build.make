@@ -70,29 +70,29 @@ test/CMakeFiles/MyTests.dir/mytests.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/MyTests.dir/mytests.cpp.s"
 	cd /mntpliki_mic/C++/MealApp/build/test && /bin/x86_64-linux-gnu-g++-10 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mntpliki_mic/C++/MealApp/test/mytests.cpp -o CMakeFiles/MyTests.dir/mytests.cpp.s
 
-test/CMakeFiles/MyTests.dir/__/meal.cpp.o: test/CMakeFiles/MyTests.dir/flags.make
-test/CMakeFiles/MyTests.dir/__/meal.cpp.o: ../meal.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mntpliki_mic/C++/MealApp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object test/CMakeFiles/MyTests.dir/__/meal.cpp.o"
-	cd /mntpliki_mic/C++/MealApp/build/test && /bin/x86_64-linux-gnu-g++-10  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/MyTests.dir/__/meal.cpp.o -c /mntpliki_mic/C++/MealApp/meal.cpp
+test/CMakeFiles/MyTests.dir/__/sources/meal.cpp.o: test/CMakeFiles/MyTests.dir/flags.make
+test/CMakeFiles/MyTests.dir/__/sources/meal.cpp.o: ../sources/meal.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mntpliki_mic/C++/MealApp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object test/CMakeFiles/MyTests.dir/__/sources/meal.cpp.o"
+	cd /mntpliki_mic/C++/MealApp/build/test && /bin/x86_64-linux-gnu-g++-10  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/MyTests.dir/__/sources/meal.cpp.o -c /mntpliki_mic/C++/MealApp/sources/meal.cpp
 
-test/CMakeFiles/MyTests.dir/__/meal.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/MyTests.dir/__/meal.cpp.i"
-	cd /mntpliki_mic/C++/MealApp/build/test && /bin/x86_64-linux-gnu-g++-10 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mntpliki_mic/C++/MealApp/meal.cpp > CMakeFiles/MyTests.dir/__/meal.cpp.i
+test/CMakeFiles/MyTests.dir/__/sources/meal.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/MyTests.dir/__/sources/meal.cpp.i"
+	cd /mntpliki_mic/C++/MealApp/build/test && /bin/x86_64-linux-gnu-g++-10 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mntpliki_mic/C++/MealApp/sources/meal.cpp > CMakeFiles/MyTests.dir/__/sources/meal.cpp.i
 
-test/CMakeFiles/MyTests.dir/__/meal.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/MyTests.dir/__/meal.cpp.s"
-	cd /mntpliki_mic/C++/MealApp/build/test && /bin/x86_64-linux-gnu-g++-10 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mntpliki_mic/C++/MealApp/meal.cpp -o CMakeFiles/MyTests.dir/__/meal.cpp.s
+test/CMakeFiles/MyTests.dir/__/sources/meal.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/MyTests.dir/__/sources/meal.cpp.s"
+	cd /mntpliki_mic/C++/MealApp/build/test && /bin/x86_64-linux-gnu-g++-10 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mntpliki_mic/C++/MealApp/sources/meal.cpp -o CMakeFiles/MyTests.dir/__/sources/meal.cpp.s
 
 # Object files for target MyTests
 MyTests_OBJECTS = \
 "CMakeFiles/MyTests.dir/mytests.cpp.o" \
-"CMakeFiles/MyTests.dir/__/meal.cpp.o"
+"CMakeFiles/MyTests.dir/__/sources/meal.cpp.o"
 
 # External object files for target MyTests
 MyTests_EXTERNAL_OBJECTS =
 
 test/MyTests: test/CMakeFiles/MyTests.dir/mytests.cpp.o
-test/MyTests: test/CMakeFiles/MyTests.dir/__/meal.cpp.o
+test/MyTests: test/CMakeFiles/MyTests.dir/__/sources/meal.cpp.o
 test/MyTests: test/CMakeFiles/MyTests.dir/build.make
 test/MyTests: lib/libgtest_maind.a
 test/MyTests: lib/libgtestd.a

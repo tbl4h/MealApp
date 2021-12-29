@@ -57,27 +57,27 @@ include CMakeFiles/MealApp.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/MealApp.dir/flags.make
 
-CMakeFiles/MealApp.dir/meal.cpp.o: CMakeFiles/MealApp.dir/flags.make
-CMakeFiles/MealApp.dir/meal.cpp.o: ../meal.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mntpliki_mic/C++/MealApp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/MealApp.dir/meal.cpp.o"
-	/bin/x86_64-linux-gnu-g++-10  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/MealApp.dir/meal.cpp.o -c /mntpliki_mic/C++/MealApp/meal.cpp
+CMakeFiles/MealApp.dir/sources/meal.cpp.o: CMakeFiles/MealApp.dir/flags.make
+CMakeFiles/MealApp.dir/sources/meal.cpp.o: ../sources/meal.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mntpliki_mic/C++/MealApp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/MealApp.dir/sources/meal.cpp.o"
+	/bin/x86_64-linux-gnu-g++-10  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/MealApp.dir/sources/meal.cpp.o -c /mntpliki_mic/C++/MealApp/sources/meal.cpp
 
-CMakeFiles/MealApp.dir/meal.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/MealApp.dir/meal.cpp.i"
-	/bin/x86_64-linux-gnu-g++-10 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mntpliki_mic/C++/MealApp/meal.cpp > CMakeFiles/MealApp.dir/meal.cpp.i
+CMakeFiles/MealApp.dir/sources/meal.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/MealApp.dir/sources/meal.cpp.i"
+	/bin/x86_64-linux-gnu-g++-10 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mntpliki_mic/C++/MealApp/sources/meal.cpp > CMakeFiles/MealApp.dir/sources/meal.cpp.i
 
-CMakeFiles/MealApp.dir/meal.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/MealApp.dir/meal.cpp.s"
-	/bin/x86_64-linux-gnu-g++-10 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mntpliki_mic/C++/MealApp/meal.cpp -o CMakeFiles/MealApp.dir/meal.cpp.s
+CMakeFiles/MealApp.dir/sources/meal.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/MealApp.dir/sources/meal.cpp.s"
+	/bin/x86_64-linux-gnu-g++-10 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mntpliki_mic/C++/MealApp/sources/meal.cpp -o CMakeFiles/MealApp.dir/sources/meal.cpp.s
 
 # Object files for target MealApp
 MealApp_OBJECTS = \
-"CMakeFiles/MealApp.dir/meal.cpp.o"
+"CMakeFiles/MealApp.dir/sources/meal.cpp.o"
 
 # External object files for target MealApp
 MealApp_EXTERNAL_OBJECTS =
 
-libMealApp.a: CMakeFiles/MealApp.dir/meal.cpp.o
+libMealApp.a: CMakeFiles/MealApp.dir/sources/meal.cpp.o
 libMealApp.a: CMakeFiles/MealApp.dir/build.make
 libMealApp.a: CMakeFiles/MealApp.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/mntpliki_mic/C++/MealApp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX static library libMealApp.a"
