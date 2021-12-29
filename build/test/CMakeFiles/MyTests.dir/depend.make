@@ -24,5 +24,7 @@ test/CMakeFiles/MyTests.dir/mytests.cpp.o: ../googletest/googletest/include/gtes
 test/CMakeFiles/MyTests.dir/mytests.cpp.o: ../googletest/googletest/include/gtest/internal/gtest-port.h
 test/CMakeFiles/MyTests.dir/mytests.cpp.o: ../googletest/googletest/include/gtest/internal/gtest-string.h
 test/CMakeFiles/MyTests.dir/mytests.cpp.o: ../googletest/googletest/include/gtest/internal/gtest-type-util.h
+test/CMakeFiles/MyTests.dir/mytests.cpp.o: ../headers/meal.h
+test/CMakeFiles/MyTests.dir/mytests.cpp.o: ../headers/rolling_function.h
 test/CMakeFiles/MyTests.dir/mytests.cpp.o: ../test/mytests.cpp
 

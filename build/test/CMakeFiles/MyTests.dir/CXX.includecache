@@ -340,15 +340,23 @@ iostream
 exception
 -
 
-/mntpliki_mic/C++/MealApp/sources/meal.cpp
-../headers/meal.h
+/mntpliki_mic/C++/MealApp/headers/rolling_function.h
+meal.h
 /mntpliki_mic/C++/MealApp/headers/meal.h
+iostream
+-
+string
+-
+random
+-
 
 /mntpliki_mic/C++/MealApp/test/mytests.cpp
 gtest/gtest.h
 -
 gmock/gmock.h
 /mntpliki_mic/C++/MealApp/test/gmock/gmock.h
-../meal.h
-/mntpliki_mic/C++/MealApp/meal.h
+../headers/meal.h
+/mntpliki_mic/C++/MealApp/headers/meal.h
+../headers/rolling_function.h
+/mntpliki_mic/C++/MealApp/headers/rolling_function.h
 

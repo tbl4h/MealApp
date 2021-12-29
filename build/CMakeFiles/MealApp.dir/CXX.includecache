@@ -6,15 +6,15 @@
 
 #IncludeRegexTransform: 
 
-/mntpliki_mic/C++/MealApp/meal.cpp
-meal.h
-/mntpliki_mic/C++/MealApp/meal.h
-
-/mntpliki_mic/C++/MealApp/meal.h
+/mntpliki_mic/C++/MealApp/headers/meal.h
 string.h
 -
 iostream
 -
 exception
 -
+
+/mntpliki_mic/C++/MealApp/sources/meal.cpp
+../headers/meal.h
+/mntpliki_mic/C++/MealApp/headers/meal.h
 

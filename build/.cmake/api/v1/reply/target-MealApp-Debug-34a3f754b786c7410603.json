@@ -25,7 +25,7 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 16,
+				"line" : 17,
 				"parent" : 0
 			}
 		]
@@ -42,7 +42,8 @@
 			"language" : "CXX",
 			"sourceIndexes" : 
 			[
-				0
+				0,
+				1
 			]
 		}
 	],
@@ -60,15 +61,16 @@
 			"name" : "Source Files",
 			"sourceIndexes" : 
 			[
-				0
+				0,
+				1
 			]
 		},
 		{
 			"name" : "Header Files",
 			"sourceIndexes" : 
 			[
-				1,
-				2
+				2,
+				3
 			]
 		}
 	],
@@ -82,12 +84,18 @@
 		},
 		{
 			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "sources/rolling_function.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
 			"path" : "headers/meal.h",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 1,
-			"path" : "headers/meals_list.h",
+			"path" : "headers/rolling_function.h",
 			"sourceGroupIndex" : 1
 		}
 	],

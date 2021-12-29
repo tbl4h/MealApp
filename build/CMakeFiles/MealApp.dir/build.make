@@ -70,17 +70,32 @@ CMakeFiles/MealApp.dir/sources/meal.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/MealApp.dir/sources/meal.cpp.s"
 	/bin/x86_64-linux-gnu-g++-10 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mntpliki_mic/C++/MealApp/sources/meal.cpp -o CMakeFiles/MealApp.dir/sources/meal.cpp.s
 
+CMakeFiles/MealApp.dir/sources/rolling_function.cpp.o: CMakeFiles/MealApp.dir/flags.make
+CMakeFiles/MealApp.dir/sources/rolling_function.cpp.o: ../sources/rolling_function.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mntpliki_mic/C++/MealApp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/MealApp.dir/sources/rolling_function.cpp.o"
+	/bin/x86_64-linux-gnu-g++-10  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/MealApp.dir/sources/rolling_function.cpp.o -c /mntpliki_mic/C++/MealApp/sources/rolling_function.cpp
+
+CMakeFiles/MealApp.dir/sources/rolling_function.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/MealApp.dir/sources/rolling_function.cpp.i"
+	/bin/x86_64-linux-gnu-g++-10 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mntpliki_mic/C++/MealApp/sources/rolling_function.cpp > CMakeFiles/MealApp.dir/sources/rolling_function.cpp.i
+
+CMakeFiles/MealApp.dir/sources/rolling_function.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/MealApp.dir/sources/rolling_function.cpp.s"
+	/bin/x86_64-linux-gnu-g++-10 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mntpliki_mic/C++/MealApp/sources/rolling_function.cpp -o CMakeFiles/MealApp.dir/sources/rolling_function.cpp.s
+
 # Object files for target MealApp
 MealApp_OBJECTS = \
-"CMakeFiles/MealApp.dir/sources/meal.cpp.o"
+"CMakeFiles/MealApp.dir/sources/meal.cpp.o" \
+"CMakeFiles/MealApp.dir/sources/rolling_function.cpp.o"
 
 # External object files for target MealApp
 MealApp_EXTERNAL_OBJECTS =
 
 libMealApp.a: CMakeFiles/MealApp.dir/sources/meal.cpp.o
+libMealApp.a: CMakeFiles/MealApp.dir/sources/rolling_function.cpp.o
 libMealApp.a: CMakeFiles/MealApp.dir/build.make
 libMealApp.a: CMakeFiles/MealApp.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/mntpliki_mic/C++/MealApp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX static library libMealApp.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/mntpliki_mic/C++/MealApp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX static library libMealApp.a"
 	$(CMAKE_COMMAND) -P CMakeFiles/MealApp.dir/cmake_clean_target.cmake
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/MealApp.dir/link.txt --verbose=$(VERBOSE)
 

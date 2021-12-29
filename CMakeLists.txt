@@ -8,9 +8,10 @@ add_subdirectory(test)
 file(GLOB_RECURSE fileCollection "./*.cpp")
 set(Headers 
     ./headers/meal.h
-    ./headers/meals_list.h
+    ./headers/rolling_function.h
     )
 set(Sources 
     ./sources/meal.cpp
+    ./sources/rolling_function.cpp
     )
 add_library(${This} STATIC ${Sources} ${Headers})

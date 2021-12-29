@@ -23,6 +23,8 @@ Meal::Meal(Meals meal) {
         case Meals::Sushi:
             name = "Sushi";
             break;
+        default :
+            throw std::out_of_range("Constructor argument is out of Meals enumerators range .");
     }
 }
 
