@@ -335,20 +335,16 @@ acxx_demangle.h
 /mntpliki_mic/C++/MealApp/meal.h
 string.h
 -
-
-/mntpliki_mic/C++/MealApp/meals_list.h
 iostream
 -
-vector
--
-string
+exception
 -
 
 /mntpliki_mic/C++/MealApp/test/mytests.cpp
 gtest/gtest.h
 -
+gmock/gmock.h
+/mntpliki_mic/C++/MealApp/test/gmock/gmock.h
 ../meal.h
 /mntpliki_mic/C++/MealApp/meal.h
-../meals_list.h
-/mntpliki_mic/C++/MealApp/meals_list.h
 

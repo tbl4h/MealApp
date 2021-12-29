@@ -1,19 +1,13 @@
 #include <gtest/gtest.h>
+#include "gmock/gmock.h"
 #include "../meal.h"
-#include "../meals_list.h"
 
-TEST(MealList, MealsList_name)
-{
-    std::string melasName[] = {"Pizza","Spagetti","Roasted Beef","Fish and Chips","Salmon","Rice and chicken","Sushi"};
-    for(int i =0;i<7;i++){
-        for(int j;j<7;j++){
-            EXPECT_EQ(MealsList[i],melasName[j]);
-        }
-    }
-}
-TEST(MealList, MealsList_size)
-{
-    ASSERT_EQ(MealsList.size(),7);
+
+TEST(Meal_class, Meal_class_constructor)
+{    
+    Meal myMeal(Meals::Rice_and_chicken);
+    EXPECT_THAT(myMeal.get_name(),"Rice and chicken");
+    EXPECT_THAT(myMeal.get_name(),"");
 }
 int main(int argc, char* argv[])
 {

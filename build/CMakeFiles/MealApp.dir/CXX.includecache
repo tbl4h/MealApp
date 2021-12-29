@@ -7,4 +7,14 @@
 #IncludeRegexTransform: 
 
 /mntpliki_mic/C++/MealApp/meal.cpp
+meal.h
+/mntpliki_mic/C++/MealApp/meal.h
+
+/mntpliki_mic/C++/MealApp/meal.h
+string.h
+-
+iostream
+-
+exception
+-
 
