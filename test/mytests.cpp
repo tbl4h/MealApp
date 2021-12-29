@@ -1,6 +1,6 @@
 #include <gtest/gtest.h>
 #include "gmock/gmock.h"
-#include "../meal.h"
+#include "../headers/meal.h"
 
 
 TEST(Meal_class, Meal_class_constructor)
