@@ -1,1 +1,1 @@
-/usr/bin/c++     CMakeFiles/MyTests.dir/mytests.cpp.o  -o MyTests  ../lib/libgtest_main.a ../lib/libgtest.a -lpthread 
+/bin/x86_64-linux-gnu-g++-10  -g   CMakeFiles/MyTests.dir/mytests.cpp.o CMakeFiles/MyTests.dir/__/meal.cpp.o  -o MyTests  ../lib/libgtest_maind.a ../lib/libgtestd.a -lpthread 

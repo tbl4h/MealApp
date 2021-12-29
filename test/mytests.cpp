@@ -6,8 +6,7 @@
 TEST(Meal_class, Meal_class_constructor)
 {    
     Meal myMeal(Meals::Rice_and_chicken);
-    EXPECT_THAT(myMeal.get_name(),"Rice and chicken");
-    EXPECT_THAT(myMeal.get_name(),"");
+    EXPECT_THAT(myMeal.get_name(),"Rice and chicken");    
 }
 int main(int argc, char* argv[])
 {

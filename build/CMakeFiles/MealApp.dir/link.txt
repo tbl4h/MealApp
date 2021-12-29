@@ -1,2 +1,2 @@
-/usr/bin/ar qc libMealApp.a  CMakeFiles/MealApp.dir/meal.cpp.o
-/usr/bin/ranlib libMealApp.a
+/bin/ar qc libMealApp.a  CMakeFiles/MealApp.dir/meal.cpp.o
+/bin/ranlib libMealApp.a

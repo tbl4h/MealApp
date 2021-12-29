@@ -182,6 +182,33 @@ MyTests/fast:
 	cd /mntpliki_mic/C++/MealApp/build && $(MAKE) -f test/CMakeFiles/MyTests.dir/build.make test/CMakeFiles/MyTests.dir/build
 .PHONY : MyTests/fast
 
+__/meal.o: __/meal.cpp.o
+
+.PHONY : __/meal.o
+
+# target to build an object file
+__/meal.cpp.o:
+	cd /mntpliki_mic/C++/MealApp/build && $(MAKE) -f test/CMakeFiles/MyTests.dir/build.make test/CMakeFiles/MyTests.dir/__/meal.cpp.o
+.PHONY : __/meal.cpp.o
+
+__/meal.i: __/meal.cpp.i
+
+.PHONY : __/meal.i
+
+# target to preprocess a source file
+__/meal.cpp.i:
+	cd /mntpliki_mic/C++/MealApp/build && $(MAKE) -f test/CMakeFiles/MyTests.dir/build.make test/CMakeFiles/MyTests.dir/__/meal.cpp.i
+.PHONY : __/meal.cpp.i
+
+__/meal.s: __/meal.cpp.s
+
+.PHONY : __/meal.s
+
+# target to generate assembly for a file
+__/meal.cpp.s:
+	cd /mntpliki_mic/C++/MealApp/build && $(MAKE) -f test/CMakeFiles/MyTests.dir/build.make test/CMakeFiles/MyTests.dir/__/meal.cpp.s
+.PHONY : __/meal.cpp.s
+
 mytests.o: mytests.cpp.o
 
 .PHONY : mytests.o
@@ -223,6 +250,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... test"
 	@echo "... MyTests"
+	@echo "... __/meal.o"
+	@echo "... __/meal.i"
+	@echo "... __/meal.s"
 	@echo "... mytests.o"
 	@echo "... mytests.i"
 	@echo "... mytests.s"

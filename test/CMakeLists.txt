@@ -3,6 +3,7 @@ set(This MyTests)
 
 set(Sources
     mytests.cpp
+    ./../meal.cpp
 )
 
 add_executable(${This} ${Sources})

@@ -185,7 +185,7 @@ googletest/googlemock/CMakeFiles/gmock_main.dir/all: googletest/googlemock/CMake
 googletest/googlemock/CMakeFiles/gmock_main.dir/all: googletest/googletest/CMakeFiles/gtest.dir/all
 	$(MAKE) -f googletest/googlemock/CMakeFiles/gmock_main.dir/build.make googletest/googlemock/CMakeFiles/gmock_main.dir/depend
 	$(MAKE) -f googletest/googlemock/CMakeFiles/gmock_main.dir/build.make googletest/googlemock/CMakeFiles/gmock_main.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/mntpliki_mic/C++/MealApp/build/CMakeFiles --progress-num=7,8 "Built target gmock_main"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/mntpliki_mic/C++/MealApp/build/CMakeFiles --progress-num=8,9 "Built target gmock_main"
 .PHONY : googletest/googlemock/CMakeFiles/gmock_main.dir/all
 
 # Build rule for subdir invocation for target.
@@ -212,7 +212,7 @@ googletest/googlemock/CMakeFiles/gmock_main.dir/clean:
 googletest/googlemock/CMakeFiles/gmock.dir/all: googletest/googletest/CMakeFiles/gtest.dir/all
 	$(MAKE) -f googletest/googlemock/CMakeFiles/gmock.dir/build.make googletest/googlemock/CMakeFiles/gmock.dir/depend
 	$(MAKE) -f googletest/googlemock/CMakeFiles/gmock.dir/build.make googletest/googlemock/CMakeFiles/gmock.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/mntpliki_mic/C++/MealApp/build/CMakeFiles --progress-num=5,6 "Built target gmock"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/mntpliki_mic/C++/MealApp/build/CMakeFiles --progress-num=6,7 "Built target gmock"
 .PHONY : googletest/googlemock/CMakeFiles/gmock.dir/all
 
 # Build rule for subdir invocation for target.
@@ -239,7 +239,7 @@ googletest/googlemock/CMakeFiles/gmock.dir/clean:
 googletest/googletest/CMakeFiles/gtest_main.dir/all: googletest/googletest/CMakeFiles/gtest.dir/all
 	$(MAKE) -f googletest/googletest/CMakeFiles/gtest_main.dir/build.make googletest/googletest/CMakeFiles/gtest_main.dir/depend
 	$(MAKE) -f googletest/googletest/CMakeFiles/gtest_main.dir/build.make googletest/googletest/CMakeFiles/gtest_main.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/mntpliki_mic/C++/MealApp/build/CMakeFiles --progress-num=11,12 "Built target gtest_main"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/mntpliki_mic/C++/MealApp/build/CMakeFiles --progress-num=12,13 "Built target gtest_main"
 .PHONY : googletest/googletest/CMakeFiles/gtest_main.dir/all
 
 # Build rule for subdir invocation for target.
@@ -266,7 +266,7 @@ googletest/googletest/CMakeFiles/gtest_main.dir/clean:
 googletest/googletest/CMakeFiles/gtest.dir/all:
 	$(MAKE) -f googletest/googletest/CMakeFiles/gtest.dir/build.make googletest/googletest/CMakeFiles/gtest.dir/depend
 	$(MAKE) -f googletest/googletest/CMakeFiles/gtest.dir/build.make googletest/googletest/CMakeFiles/gtest.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/mntpliki_mic/C++/MealApp/build/CMakeFiles --progress-num=9,10 "Built target gtest"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/mntpliki_mic/C++/MealApp/build/CMakeFiles --progress-num=10,11 "Built target gtest"
 .PHONY : googletest/googletest/CMakeFiles/gtest.dir/all
 
 # Build rule for subdir invocation for target.
@@ -294,12 +294,12 @@ test/CMakeFiles/MyTests.dir/all: googletest/googletest/CMakeFiles/gtest_main.dir
 test/CMakeFiles/MyTests.dir/all: googletest/googletest/CMakeFiles/gtest.dir/all
 	$(MAKE) -f test/CMakeFiles/MyTests.dir/build.make test/CMakeFiles/MyTests.dir/depend
 	$(MAKE) -f test/CMakeFiles/MyTests.dir/build.make test/CMakeFiles/MyTests.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/mntpliki_mic/C++/MealApp/build/CMakeFiles --progress-num=3,4 "Built target MyTests"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/mntpliki_mic/C++/MealApp/build/CMakeFiles --progress-num=3,4,5 "Built target MyTests"
 .PHONY : test/CMakeFiles/MyTests.dir/all
 
 # Build rule for subdir invocation for target.
 test/CMakeFiles/MyTests.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /mntpliki_mic/C++/MealApp/build/CMakeFiles 6
+	$(CMAKE_COMMAND) -E cmake_progress_start /mntpliki_mic/C++/MealApp/build/CMakeFiles 7
 	$(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/MyTests.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /mntpliki_mic/C++/MealApp/build/CMakeFiles 0
 .PHONY : test/CMakeFiles/MyTests.dir/rule
