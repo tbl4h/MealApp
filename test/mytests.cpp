@@ -3,7 +3,7 @@
 #include "../headers/meal.h"
 #include "../headers/rolling_function.h"
 
-TEST(Meal_class, Meal_class_constructor)
+TEST(Meal_class, constructor)
 {    
     Meal myMeal1(Meals::Spagetti);
     Meal myMeal2(Meals::Pizza);
@@ -20,10 +20,10 @@ TEST(Meal_class, Meal_class_constructor)
     EXPECT_THAT(myMeal6.get_name(),"Roasted beef");
     EXPECT_THAT(myMeal7.get_name(),"Sushi");    
 }
-TEST(Meal_class, Meal_class_constructor_argument_is_out_of_range){
+TEST(Meal_class, constructor){
     EXPECT_THROW(Meal _meal(static_cast<Meals>(10)),std::out_of_range); 
 }
-TEST(Rolling_function, roll_in_Meals_range)
+TEST(Rolling_function, rolling)
 {    
     for(int i=0;i<100;i++){
         Meals meal = roll();    
