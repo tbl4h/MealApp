@@ -1,2 +1,2 @@
-/bin/ar qc libMealApp.a  CMakeFiles/MealApp.dir/sources/meal.cpp.o CMakeFiles/MealApp.dir/sources/rolling_function.cpp.o
+/bin/ar qc libMealApp.a  CMakeFiles/MealApp.dir/sources/meal.cpp.o
 /bin/ranlib libMealApp.a

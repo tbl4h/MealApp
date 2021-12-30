@@ -5,11 +5,6 @@
   "file": "/mntpliki_mic/C++/MealApp/sources/meal.cpp"
 },
 {
-  "directory": "/mntpliki_mic/C++/MealApp/build",
-  "command": "/bin/x86_64-linux-gnu-g++-10    -g   -o CMakeFiles/MealApp.dir/sources/rolling_function.cpp.o -c /mntpliki_mic/C++/MealApp/sources/rolling_function.cpp",
-  "file": "/mntpliki_mic/C++/MealApp/sources/rolling_function.cpp"
-},
-{
   "directory": "/mntpliki_mic/C++/MealApp/build/googletest/googlemock",
   "command": "/bin/x86_64-linux-gnu-g++-10   -isystem /mntpliki_mic/C++/MealApp/googletest/googlemock/include -isystem /mntpliki_mic/C++/MealApp/googletest/googlemock -isystem /mntpliki_mic/C++/MealApp/googletest/googletest/include -isystem /mntpliki_mic/C++/MealApp/googletest/googletest  -g   -Wall -Wshadow -Werror -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=1 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -o CMakeFiles/gmock_main.dir/src/gmock_main.cc.o -c /mntpliki_mic/C++/MealApp/googletest/googlemock/src/gmock_main.cc",
   "file": "/mntpliki_mic/C++/MealApp/googletest/googlemock/src/gmock_main.cc"

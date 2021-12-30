@@ -12,6 +12,5 @@ set(Headers
     )
 set(Sources 
     ./sources/meal.cpp
-    ./sources/rolling_function.cpp
     )
 add_library(${This} STATIC ${Sources} ${Headers})

@@ -272,33 +272,6 @@ sources/meal.cpp.s:
 	$(MAKE) -f CMakeFiles/MealApp.dir/build.make CMakeFiles/MealApp.dir/sources/meal.cpp.s
 .PHONY : sources/meal.cpp.s
 
-sources/rolling_function.o: sources/rolling_function.cpp.o
-
-.PHONY : sources/rolling_function.o
-
-# target to build an object file
-sources/rolling_function.cpp.o:
-	$(MAKE) -f CMakeFiles/MealApp.dir/build.make CMakeFiles/MealApp.dir/sources/rolling_function.cpp.o
-.PHONY : sources/rolling_function.cpp.o
-
-sources/rolling_function.i: sources/rolling_function.cpp.i
-
-.PHONY : sources/rolling_function.i
-
-# target to preprocess a source file
-sources/rolling_function.cpp.i:
-	$(MAKE) -f CMakeFiles/MealApp.dir/build.make CMakeFiles/MealApp.dir/sources/rolling_function.cpp.i
-.PHONY : sources/rolling_function.cpp.i
-
-sources/rolling_function.s: sources/rolling_function.cpp.s
-
-.PHONY : sources/rolling_function.s
-
-# target to generate assembly for a file
-sources/rolling_function.cpp.s:
-	$(MAKE) -f CMakeFiles/MealApp.dir/build.make CMakeFiles/MealApp.dir/sources/rolling_function.cpp.s
-.PHONY : sources/rolling_function.cpp.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -321,9 +294,6 @@ help:
 	@echo "... sources/meal.o"
 	@echo "... sources/meal.i"
 	@echo "... sources/meal.s"
-	@echo "... sources/rolling_function.o"
-	@echo "... sources/rolling_function.i"
-	@echo "... sources/rolling_function.s"
 .PHONY : help
 
 
