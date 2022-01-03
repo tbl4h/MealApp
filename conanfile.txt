@@ -1,0 +1,6 @@
+[requires]
+libcurl/7.80.0
+gtest/1.11.0
+hdf5/1.12.0
+[generators]
+cmake

@@ -1,4 +1,11 @@
-TODo
+ToDo
+    !!! Try to make this project according to TDD standard. !!!
+    Write Meals_list class tahat can contain standard meals list.
+    Meals_list class should can add new meal passed from user to the list.
+    Write Meal_Scrapper class that download meal's name from some hard-coded website.
+    Meals_list can download meal's name from some website using Meal_Scrapper class.
+    Play around Self Describing Data Files in case to mealsList class.
+Done
     Check if meal list contain "Spagetti","Pizza","Fish and Chips","Rice and chicken","Salmon","Roasted Beef","Sushi"
     Create Meals Lest contains 7 meal
     Check if meal class constructor create aproprieate meal object -> is that contain one of the meal from mel list

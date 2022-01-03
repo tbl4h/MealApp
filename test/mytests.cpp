@@ -1,7 +1,11 @@
+#pragma once
 #include <gtest/gtest.h>
 #include "gmock/gmock.h"
 #include "../headers/meal.h"
 #include "../headers/rolling_function.h"
+#include "../headers/meals_list.h"
+#include <memory>
+#include "../headers/parse_meal.h"
 
 TEST(Meal_class, constructor)
 {    
@@ -20,16 +24,34 @@ TEST(Meal_class, constructor)
     EXPECT_THAT(myMeal6.get_name(),"Roasted beef");
     EXPECT_THAT(myMeal7.get_name(),"Sushi");    
 }
-TEST(Meal_class, constructor){
+/*
+TEST(MealClass, constructor_test){
     EXPECT_THROW(Meal _meal(static_cast<Meals>(10)),std::out_of_range); 
 }
+*/
 TEST(Rolling_function, rolling)
-{    
+{   
     for(int i=0;i<100;i++){
         Meals meal = roll();    
         EXPECT_NO_THROW(Meal _meal(meal));
     }      
 }
+TEST(MealParser_class,get_page){
+    MealParser::MealParser mealParser;
+    mealParser.getPage();
+    EXPECT_EQ(mealParser.isGetSucces(),true);
+}
+
+TEST(MealParser_class,without_get_page){
+    MealParser::MealParser mealParser;    
+    EXPECT_NE(mealParser.isGetSucces(),true);
+}
+TEST(MealParser_class,parse_meals){
+    MealParser::MealParser mealParser;
+    mealParser.getPage();    
+    EXPECT_EQ(mealParser.parseMeals(),true);
+}
+
 int main(int argc, char* argv[])
 {
     ::testing::InitGoogleTest(&argc, argv);
