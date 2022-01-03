@@ -7,7 +7,7 @@ enum class Meals {Spagetti,Pizza,Fish_and_Chips,Rice_and_chicken,Salmon,Roasted_
 
 class Meal {
     public:
-    Meal(Meals meal);
+    Meal(Meals meal) ;
     std::string get_name() const;
     private:
     std::string name ; 
