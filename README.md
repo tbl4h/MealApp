@@ -1,5 +1,5 @@
-Requre Conan manager or aproprieate steps listed below(Not tested). To install visit: https://conan.io/ 
-In some cases you need to change remote repository in conan or set apropriate compiler standard:
+Requred Conan manager or appropriate steps listed below(Not tested). To install visit: https://conan.io/ 
+In some cases you need to change remote repository in conan or set appropriate compiler standard:
     conan remote add conancenter https://center.conan.io --> to set new remote repository
     conan profile new default --detect --> to create default conan profile if not exist
     conan profile update settings.compiler.libcxx=libstdc++11 default --> to update ABI
