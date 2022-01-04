@@ -3,7 +3,8 @@ ToDo
     Fix segmentation fault problem or rewrite C Curl API according to:
         https://www.cppstories.com/2021/refactor-into-uniqueptr/
         https://www.cprogramming.com/debugging/segfaults.html
-
+    To use mpc BigNum check:
+        https://www.multiprecision.org/downloads/mpc-1.2.1.pdf
     Write Meals_list class that can contain standard meals list.
     Meals_list class should can add new meal passed from user to the list.
     Write Meal_Scrapper class that download meal's name from some hard-coded website.

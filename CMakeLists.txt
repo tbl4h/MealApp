@@ -29,6 +29,9 @@ conan_basic_setup()
 set (CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -fno-omit-frame-pointer  -fsanitize=address -g")
 set (CMAKE_LINKER_FLAGS_DEBUG "${CMAKE_LINKER_FLAGS_DEBUG} -fno-omit-frame-pointer -fsanitize=address -g")
 
+#Set libmpc path
+set (LIBMPC_PATH "/usr/lib/x86_64-linux-gnu/libmpc.so.3")
+
 #Check if libCurl is installed on the system.
 if(NOT CURL_FOUND)
   message(WARNING "libCurl is not installed on the system.\n")
@@ -47,6 +50,7 @@ if(NOT HDF5_FOUND)
 else()
   message(STATUS "HDF5 version: "${HDF5_VERSION})
 endif()
+
 #Build source lib.
 file(GLOB_RECURSE MY_APP_SRC ${CMAKE_CURRENT_SOURCE_DIR}/sources/*.cpp)
 file(GLOB_RECURSE MY_APP_HEADERS ${CMAKE_CURRENT_SOURCE_DIR}/headers/*.h)
@@ -65,6 +69,7 @@ if(NOT CMAKE_CXX_LINK_PIE_SUPPORTED)
                   "PIE link options will not be passed to linker.")
 endif()
 target_link_libraries(my_app my_app_src)
+target_link_libraries(my_app ${LIBMPC_PATH})
 # @START UNCOMMENT SECTION
 #target_link_libraries(my_app googletest libcurl)
 # @END UNCOMMENT SECTION
@@ -78,6 +83,7 @@ if(NOT CMAKE_CXX_LINK_PIE_SUPPORTED)
                   "PIE link options will not be passed to linker.")
 endif()
 target_link_libraries(tests my_app_src)
+target_link_libraries(tests ${LIBMPC_PATH})
 # @START UNCOMMENT SECTION
 #target_link_libraries(tests googletest libcurl)
 # @END UNCOMMENT SECTION

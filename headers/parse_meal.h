@@ -12,12 +12,14 @@
 #include <iostream>
 #include <iomanip>
 #include <memory>
+#include <unordered_map>
 namespace MealParser
 {    
     class MealParser
     {
     private:
         struct Impl;        
+        struct MealData;
         struct MemoryStruct;
         std::unique_ptr<Impl> _impl;
         
@@ -27,6 +29,9 @@ namespace MealParser
         bool getPage(int number = 1);
         bool parseMeals();
         bool isGetSuccess();
+        bool getDataFromRange(int start,int end);
+        void listCacheData();
+        bool findMealInCacheData(std::string meal_name);
         MealParser();
         ~MealParser();
     };
