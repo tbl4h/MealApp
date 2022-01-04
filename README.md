@@ -18,7 +18,7 @@ If some test fails while installing mpfr lib use:
           sudo ldconfig --> to update cache for the linker  
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-In some reason to use mpc lib after downloaded it by conan is necessary to copy the definitions header into headers directory amd link them directly in CMakeList.txt
+For some reason to use mpc lib after downloading it by Conan is necessary to copy the definition's header into the headers directory and link them directly in CMakeList.txt
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 Potentially should install hdf5 package manualy due to conan don't install them use:
