@@ -3,7 +3,7 @@
 #include "gmock/gmock.h"
 #include "../headers/meal.h"
 #include "../headers/rolling_function.h"
-#include "../headers/meals_list.h"
+
 #include <memory>
 #include "../headers/parse_meal.h"
 
@@ -39,12 +39,12 @@ TEST(Rolling_function, rolling)
 TEST(MealParser_class,get_page){
     MealParser::MealParser mealParser;
     mealParser.getPage();
-    EXPECT_EQ(mealParser.isGetSucces(),true);
+    EXPECT_EQ(mealParser.isGetSuccess(),true);
 }
 
 TEST(MealParser_class,without_get_page){
     MealParser::MealParser mealParser;    
-    EXPECT_NE(mealParser.isGetSucces(),true);
+    EXPECT_NE(mealParser.isGetSuccess(),true);    
 }
 TEST(MealParser_class,parse_meals){
     MealParser::MealParser mealParser;

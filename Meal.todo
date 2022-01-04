@@ -1,6 +1,10 @@
 ToDo
     !!! Try to make this project according to TDD standard. !!!
-    Write Meals_list class tahat can contain standard meals list.
+    Fix segmentation fault problem or rewrite C Curl API according to:
+        https://www.cppstories.com/2021/refactor-into-uniqueptr/
+        https://www.cprogramming.com/debugging/segfaults.html
+
+    Write Meals_list class that can contain standard meals list.
     Meals_list class should can add new meal passed from user to the list.
     Write Meal_Scrapper class that download meal's name from some hard-coded website.
     Meals_list can download meal's name from some website using Meal_Scrapper class.

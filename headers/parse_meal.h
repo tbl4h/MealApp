@@ -9,7 +9,9 @@
 #include <stdlib.h>
 #include <cstring>
 #include <iostream>
-
+#include <iostream>
+#include <iomanip>
+#include <memory>
 namespace MealParser
 {    
     class MealParser
@@ -24,7 +26,7 @@ namespace MealParser
     public:
         bool getPage(int number = 1);
         bool parseMeals();
-        bool isGetSucces();
+        bool isGetSuccess();
         MealParser();
         ~MealParser();
     };

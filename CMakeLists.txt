@@ -25,6 +25,10 @@ include(FindHDF5)
 include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
 conan_basic_setup()
 
+#Set sanitizer flags
+set (CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -fno-omit-frame-pointer  -fsanitize=address -g")
+set (CMAKE_LINKER_FLAGS_DEBUG "${CMAKE_LINKER_FLAGS_DEBUG} -fno-omit-frame-pointer -fsanitize=address -g")
+
 #Check if libCurl is installed on the system.
 if(NOT CURL_FOUND)
   message(WARNING "libCurl is not installed on the system.\n")
