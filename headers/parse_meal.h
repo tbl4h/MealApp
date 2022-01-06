@@ -13,13 +13,14 @@
 #include <iomanip>
 #include <memory>
 #include <unordered_map>
+#include "../headers/shared_structure.h"
+
 namespace MealParser
 {    
     class MealParser
     {
     private:
-        struct Impl;        
-        struct MealData;
+        struct Impl;                
         struct MemoryStruct;
         std::unique_ptr<Impl> _impl;
         
@@ -32,6 +33,7 @@ namespace MealParser
         bool getDataFromRange(int start,int end);
         void listCacheData();
         bool findMealInCacheData(std::string meal_name);
+        std::unordered_map<std::string, MealData> getCacheData() const;
         MealParser();
         ~MealParser();
     };

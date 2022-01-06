@@ -8,22 +8,9 @@ namespace MealParser
         char *memory = nullptr;
         size_t size = 0;
     };
-
-    struct MealParser::MealData {
-        std::vector<std::string> ingredients;
-        int prepTime = 0;
-        int cookTime = 0;
-        std::string difficulty;
-        int portions = 0;
-        int kcal = 0;
-        int fat = 0;
-        int carbs = 0;
-        int protein = 0;
-        std::unordered_map<std::string,std::string> steps;
-    };
     struct MealParser::Impl
     {
-        std::unordered_map<std::string, MealParser::MealData>  _MealsCacheData;
+        std::unordered_map<std::string, MealData>  _MealsCacheData;
         CURL *_Curl = nullptr;
         bool _CurlInit;
         CURLcode _Res;
@@ -120,7 +107,7 @@ namespace MealParser
         std::string mealList = _impl->downloadMemory.substr(unorderedListStart, unorderedListEnd - (unorderedListStart + unorderedListElementOpen.size()));
         auto headerMealDelimiter = mealList.find(headerMealNameElement);
         auto headerMealDelimiterEnd = mealList.find("</h2>");
-        MealParser::MealData tmp;
+        MealData tmp;
         do
         {
             headerMealDelimiter = mealList.find(headerMealNameElement);
@@ -176,5 +163,8 @@ namespace MealParser
             std::cout << "There no " << meal_name << " in data." << std::endl;
             return false;
         }
+    }
+    std::unordered_map<std::string, MealData> MealParser::getCacheData() const{
+        return _impl->_MealsCacheData;
     }
 }

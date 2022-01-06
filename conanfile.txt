@@ -1,7 +1,7 @@
 [requires]
 libcurl/7.80.0
 gtest/1.11.0
-hdf5/1.12.0
+sqlite3/3.37.1
 mpc/1.2.0
 [generators]
 cmake

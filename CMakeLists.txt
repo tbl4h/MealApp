@@ -20,7 +20,7 @@ include(CheckPIESupported)
 # @END UNCOMMENT SECTION
 include(FindCURL)
 include(FindGTest)
-include(FindHDF5)
+include(FindSQLite3)
 
 include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
 conan_basic_setup()
@@ -45,10 +45,11 @@ else()
   message(STATUS "googltests found in: "${GTEST_INCLUDE_DIRS})
 endif()
 #Check if HDF5 is installed on the system.
-if(NOT HDF5_FOUND)
-  message(WARNING "HDF5 is not installed on thesystem.\n"${HDF5_FOUND}${HDF5_VERSION})
+find_package (SQLite3)
+if(NOT SQLite3_FOUND)
+  message(WARNING "SQLite3 is not installed on thesystem.\n")
 else()
-  message(STATUS "HDF5 version: "${HDF5_VERSION})
+  message(STATUS "SQLite3 version: "${SQLite3_VERSION})
 endif()
 
 #Build source lib.
@@ -70,6 +71,10 @@ if(NOT CMAKE_CXX_LINK_PIE_SUPPORTED)
 endif()
 target_link_libraries(my_app my_app_src)
 target_link_libraries(my_app ${LIBMPC_PATH})
+if (SQLite3_FOUND)
+  include_directories(${SQLite3_INCLUDE_DIRS})
+  target_link_libraries (my_app ${SQLite3_LIBRARIES})
+endif (SQLite3_FOUND)
 # @START UNCOMMENT SECTION
 #target_link_libraries(my_app googletest libcurl)
 # @END UNCOMMENT SECTION
@@ -84,6 +89,10 @@ if(NOT CMAKE_CXX_LINK_PIE_SUPPORTED)
 endif()
 target_link_libraries(tests my_app_src)
 target_link_libraries(tests ${LIBMPC_PATH})
+if (SQLite3_FOUND)
+  include_directories(${SQLite3_INCLUDE_DIRS})
+  target_link_libraries (tests ${SQLite3_LIBRARIES})
+endif (SQLite3_FOUND)
 # @START UNCOMMENT SECTION
 #target_link_libraries(tests googletest libcurl)
 # @END UNCOMMENT SECTION

@@ -3,10 +3,11 @@
 #include "gmock/gmock.h"
 #include "../headers/meal.h"
 #include "../headers/rolling_function.h"
-
+#include "../headers/meals_list.h"
 #include <memory>
 #include "../headers/parse_meal.h"
 
+/*
 TEST(Meal_class, constructor)
 {
     Meal myMeal1(Meals::Spagetti);
@@ -24,11 +25,9 @@ TEST(Meal_class, constructor)
     EXPECT_THAT(myMeal6.get_name(), "Roasted beef");
     EXPECT_THAT(myMeal7.get_name(), "Sushi");
 }
-/*
 TEST(MealClass, constructor_test){
     EXPECT_THROW(Meal _meal(static_cast<Meals>(10)),std::out_of_range);
 }
-*/
 TEST(Rolling_function, rolling)
 {
     for (int i = 0; i < 100; i++)
@@ -37,6 +36,8 @@ TEST(Rolling_function, rolling)
         EXPECT_NO_THROW(Meal _meal(meal));
     }
 }
+*/
+/*
 TEST(MealParser_class, get_page)
 {
     MealParser::MealParser mealParser;
@@ -55,7 +56,6 @@ TEST(MealParser_class, parse_meals)
     mealParser.getPage();
     EXPECT_EQ(mealParser.parseMeals(), true);
 }
-/*
 TEST(MealParser_class, list_cachedData)
 {
     MealParser::MealParser mealParser;
@@ -75,11 +75,20 @@ TEST(MealParser_class, getDataFromRange)
     EXPECT_EQ(mealParser.getDataFromRange(1,10), true);
     mealParser.listCacheData();
 }
-*/
 TEST(MealParser_class, findMealInCahceData){
     MealParser::MealParser mealParser;
     mealParser.getDataFromRange(1,1);
     EXPECT_EQ(mealParser.findMealInCacheData("Pasta with salmon &amp; peas"),true);
+
+}
+*/
+TEST(MealList_class, addMealsList){
+    MealParser::MealParser mealParser;
+    mealParser.getDataFromRange(1,1);
+    MealsList::MealsList mealsList;
+    mealsList.addMealsList(mealParser.getCacheData());
+    mealsList.addMealsToDatabase();
+    EXPECT_EQ(mealsList.findMeal("Pasta with salmon &amp; peas"),true);
 
 }
 int main(int argc, char *argv[])
