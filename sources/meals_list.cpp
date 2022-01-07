@@ -22,11 +22,11 @@ namespace MealsList
     };
     int MealsList::my_special_callback(void *unused, int count, char **data, char **columns)
     {
-        int idx;
+        
 
         printf("There are %d column(s)\n", count);
 
-        for (idx = 0; idx < count; idx++)
+        for (int idx = 0; idx < count; idx++)
         {
             printf("The data in column \"%s\" is: %s\n", columns[idx], data[idx]);
         }
@@ -35,8 +35,9 @@ namespace MealsList
 
         return 0;
     };
-    MealsList::MealsList() : _impl(new Impl)
+    MealsList::MealsList()
     {
+        _impl = std::make_unique<Impl>();
         _impl->_Rc = sqlite3_open("./MealsList.db", &_impl->_Db);
         if (_impl->_Rc)
         {
@@ -74,7 +75,7 @@ namespace MealsList
         _impl->_Sql = "";
         std::cout << "Create Meals list." << std::endl;
     };
-    void MealsList::addMeal(std::string meal)
+    void MealsList::addMeal(const std::string &meal)
     {
         MealData tmp;
         auto isInData = _impl->_MealsList.find(meal);
@@ -91,7 +92,7 @@ namespace MealsList
     {
         return _impl->_MealsList.size();
     }
-    bool MealsList::findMeal(std::string mealName)
+    bool MealsList::findMeal(const std::string &mealName)
     {
         auto isInData = _impl->_MealsList.find(mealName);
         if (isInData == _impl->_MealsList.end())

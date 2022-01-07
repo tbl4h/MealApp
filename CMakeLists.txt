@@ -1,6 +1,7 @@
 cmake_minimum_required(VERSION 3.16)
 project(MyApplication)
-set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
 include(CheckPIESupported)
 #Instead of use conan manager possible to use CMake module called FetchContent 
 #Not tested.
