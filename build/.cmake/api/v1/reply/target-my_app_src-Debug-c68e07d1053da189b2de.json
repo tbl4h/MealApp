@@ -1,0 +1,298 @@
+{
+	"artifacts" : 
+	[
+		{
+			"path" : "lib/libmy_app_src.so"
+		}
+	],
+	"backtrace" : 1,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_library",
+			"link_directories",
+			"conan_global_flags",
+			"conan_basic_setup",
+			"add_compile_options",
+			"include_directories",
+			"target_include_directories"
+		],
+		"files" : 
+		[
+			"CMakeLists.txt",
+			"build/conanbuildinfo.cmake"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 58,
+				"parent" : 0
+			},
+			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 26,
+				"parent" : 0
+			},
+			{
+				"command" : 2,
+				"file" : 1,
+				"line" : 1010,
+				"parent" : 2
+			},
+			{
+				"command" : 1,
+				"file" : 1,
+				"line" : 1511,
+				"parent" : 3
+			},
+			{
+				"command" : 4,
+				"file" : 1,
+				"line" : 1522,
+				"parent" : 3
+			},
+			{
+				"command" : 5,
+				"file" : 1,
+				"line" : 1504,
+				"parent" : 3
+			},
+			{
+				"command" : 6,
+				"file" : 0,
+				"line" : 59,
+				"parent" : 0
+			},
+			{
+				"command" : 6,
+				"file" : 0,
+				"line" : 60,
+				"parent" : 0
+			}
+		]
+	},
+	"compileGroups" : 
+	[
+		{
+			"compileCommandFragments" : 
+			[
+				{
+					"fragment" : "   -g  -fno-omit-frame-pointer  -fsanitize=address -g -fPIC  "
+				},
+				{
+					"backtrace" : 5,
+					"fragment" : "-DCURL_STATICLIB=1"
+				},
+				{
+					"fragment" : "-std=gnu++11"
+				}
+			],
+			"defines" : 
+			[
+				{
+					"define" : "my_app_src_EXPORTS"
+				}
+			],
+			"includes" : 
+			[
+				{
+					"backtrace" : 6,
+					"path" : "/home/michal/.conan/data/libcurl/7.80.0/_/_/package/0871da0308d339b8bf385c9acfcdbbd9953c6d06/include"
+				},
+				{
+					"backtrace" : 6,
+					"path" : "/home/michal/.conan/data/gtest/1.11.0/_/_/package/7320405f83ec32d8556b524cdda87ee295bb7b84/include"
+				},
+				{
+					"backtrace" : 6,
+					"path" : "/home/michal/.conan/data/sqlite3/3.37.1/_/_/package/c0cc1a2703aaeb2777d683089def26db57cf15e6/include"
+				},
+				{
+					"backtrace" : 6,
+					"path" : "/home/michal/.conan/data/mpc/1.2.0/_/_/package/9eeb3974dcb01e2b1afb28f567465c20f17a5c6f/include"
+				},
+				{
+					"backtrace" : 6,
+					"path" : "/home/michal/.conan/data/openssl/1.1.1l/_/_/package/6af9cc7cb931c5ad942174fd7838eb655717c709/include"
+				},
+				{
+					"backtrace" : 6,
+					"path" : "/home/michal/.conan/data/zlib/1.2.11/_/_/package/6af9cc7cb931c5ad942174fd7838eb655717c709/include"
+				},
+				{
+					"backtrace" : 6,
+					"path" : "/home/michal/.conan/data/mpfr/4.1.0/_/_/package/2a345fab1896a5e7007785742bbfa07f780e3aa2/include"
+				},
+				{
+					"backtrace" : 6,
+					"path" : "/home/michal/.conan/data/gmp/6.2.1/_/_/package/c790bf3bba4353696932be38006b6896a204cd21/include"
+				},
+				{
+					"backtrace" : 7,
+					"path" : "/mntpliki_mic/C++/MealApp/source"
+				},
+				{
+					"backtrace" : 8,
+					"path" : "/mntpliki_mic/C++/MealApp/headers"
+				}
+			],
+			"language" : "CXX",
+			"sourceIndexes" : 
+			[
+				0,
+				1,
+				2,
+				3
+			]
+		}
+	],
+	"id" : "my_app_src::@6890427a1f51a3e7e1df",
+	"link" : 
+	{
+		"commandFragments" : 
+		[
+			{
+				"fragment" : "",
+				"role" : "flags"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "-L/home/michal/.conan/data/libcurl/7.80.0/_/_/package/0871da0308d339b8bf385c9acfcdbbd9953c6d06/lib",
+				"role" : "libraryPath"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "-L/home/michal/.conan/data/gtest/1.11.0/_/_/package/7320405f83ec32d8556b524cdda87ee295bb7b84/lib",
+				"role" : "libraryPath"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "-L/home/michal/.conan/data/sqlite3/3.37.1/_/_/package/c0cc1a2703aaeb2777d683089def26db57cf15e6/lib",
+				"role" : "libraryPath"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "-L/home/michal/.conan/data/mpc/1.2.0/_/_/package/9eeb3974dcb01e2b1afb28f567465c20f17a5c6f/lib",
+				"role" : "libraryPath"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "-L/home/michal/.conan/data/openssl/1.1.1l/_/_/package/6af9cc7cb931c5ad942174fd7838eb655717c709/lib",
+				"role" : "libraryPath"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "-L/home/michal/.conan/data/zlib/1.2.11/_/_/package/6af9cc7cb931c5ad942174fd7838eb655717c709/lib",
+				"role" : "libraryPath"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "-L/home/michal/.conan/data/mpfr/4.1.0/_/_/package/2a345fab1896a5e7007785742bbfa07f780e3aa2/lib",
+				"role" : "libraryPath"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "-L/home/michal/.conan/data/gmp/6.2.1/_/_/package/c790bf3bba4353696932be38006b6896a204cd21/lib",
+				"role" : "libraryPath"
+			}
+		],
+		"language" : "CXX"
+	},
+	"name" : "my_app_src",
+	"nameOnDisk" : "libmy_app_src.so",
+	"paths" : 
+	{
+		"build" : ".",
+		"source" : "."
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "Source Files",
+			"sourceIndexes" : 
+			[
+				0,
+				1,
+				2,
+				3
+			]
+		},
+		{
+			"name" : "Header Files",
+			"sourceIndexes" : 
+			[
+				4,
+				5,
+				6,
+				7,
+				8,
+				9
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "sources/meal.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "sources/meals_list.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "sources/parse_meal.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "sources/rolling_function.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "headers/meal.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "headers/meals_list.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "headers/mpc.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "headers/parse_meal.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "headers/rolling_function.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "headers/shared_structure.h",
+			"sourceGroupIndex" : 1
+		}
+	],
+	"type" : "SHARED_LIBRARY"
+}
