@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.16)
-project(MyApplication)
+project(MyApplication LANGUAGES CXX)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 include(CheckPIESupported)
@@ -26,31 +26,35 @@ include(FindSQLite3)
 include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
 conan_basic_setup()
 
+#Set C++ compiler insted C
+#set(CMAKE_CPP_COMPILER gcc)
 #Set sanitizer flags
+
 set (CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -fno-omit-frame-pointer  -fsanitize=address -g")
 set (CMAKE_LINKER_FLAGS_DEBUG "${CMAKE_LINKER_FLAGS_DEBUG} -fno-omit-frame-pointer -fsanitize=address -g")
 
 #Set libmpc path
 set (LIBMPC_PATH "/usr/lib/x86_64-linux-gnu/libmpc.so.3")
 
+message(STATUS "Cxx compiler version: " ${CMAKE_CXX_COMPILER_VERSION})
 #Check if libCurl is installed on the system.
 if(NOT CURL_FOUND)
   message(WARNING "libCurl is not installed on the system.\n")
 else()
-  message(STATUS "libCurl version: "${CURL_VERSION_STRING})
+  message(STATUS "libCurl version: " ${CURL_VERSION_STRING})
 endif()
 #Check if googletest is installed on the system.
 if(NOT GTEST_FOUND)
   message(WARNING "googletests is not installed on the system.\n")
 else()
-  message(STATUS "googltests found in: "${GTEST_INCLUDE_DIRS})
+  message(STATUS "googltests found in: " ${GTEST_INCLUDE_DIRS})
 endif()
 #Check if HDF5 is installed on the system.
 find_package (SQLite3)
 if(NOT SQLite3_FOUND)
   message(WARNING "SQLite3 is not installed on thesystem.\n")
 else()
-  message(STATUS "SQLite3 version: "${SQLite3_VERSION})
+  message(STATUS "SQLite3 version: " ${SQLite3_VERSION})
 endif()
 
 #Build source lib.
@@ -59,7 +63,16 @@ file(GLOB_RECURSE MY_APP_HEADERS ${CMAKE_CURRENT_SOURCE_DIR}/headers/*.h)
 add_library(my_app_src SHARED ${MY_APP_SRC} ${MY_APP_HEADERS})
 target_include_directories(my_app_src PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/source)
 target_include_directories(my_app_src PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/headers)
-set_target_properties(my_app_src PROPERTIES LINKER_LANGUAGE CXX)
+#Use C++ not C linker properties
+#set_target_properties(my_app_src PROPERTIES LINKER_LANGUAGE CXX)
+add_compile_options(
+    "$<$<STREQUAL:$<TARGET_PROPERTY:LINKER_LANGUAGE>,CXX>:-std=c++17>"
+)
+#Enable warning for specified compiler (should finaly add -Werror to get all possible errors.)
+target_compile_options(my_app_src PUBLIC
+  $<$<CXX_COMPILER_ID:MSVC>:/W4 /WX>
+  $<$<NOT:$<CXX_COMPILER_ID:MSVC>>:-Wall -Wextra -Wfatal-errors -pedantic -fPIC>
+)
 
 add_executable(my_app ${CMAKE_CURRENT_SOURCE_DIR}/main.cpp )
 # Check if  PIE (position independent executable) is supported by linker and enable it.
@@ -98,3 +111,14 @@ endif (SQLite3_FOUND)
 #target_link_libraries(tests googletest libcurl)
 # @END UNCOMMENT SECTION
 target_link_libraries(tests ${CONAN_LIBS})
+#Enable warning for specified compiler
+target_compile_options(tests PUBLIC
+  $<$<CXX_COMPILER_ID:MSVC>:/W4 /WX>
+  $<$<NOT:$<CXX_COMPILER_ID:MSVC>>:-Wall -Wextra -Wfatal-errors -pedantic -fPIC>
+)
+
+#if(CMAKE_BUILD_TYPE STREQUAL DEBUG)
+#   target_sources(hello PRIVATE helper_debug.cpp)
+#else()
+#   target_sources(hello PRIVATE helper_release.cpp)
+#endif()

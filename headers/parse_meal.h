@@ -27,7 +27,8 @@ namespace MealParser
         bool initCurl();
         static size_t WriteMemoryCallback(void *contents, size_t size, size_t nmemb, void *userp);
     public:
-        bool getPage(int number = 1);
+        /* Declare the function with nodiscard macro to warn user of unexpected function usage. It generates compilation warning. */
+        bool [[nodiscard("Function returned value should be use.")]] getPage(int number = 1);
         bool parseMeals();
         bool isGetSuccess();
         bool getDataFromRange(int start,int end);
@@ -38,3 +39,7 @@ namespace MealParser
         ~MealParser();
     };
 }
+
+
+/* TO DO */ 
+/* Change as much as it possible to constexpression things */

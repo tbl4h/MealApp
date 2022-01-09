@@ -1,0 +1,5 @@
+/mntpliki_mic/C++/MealApp/build/CMakeFiles/rebuild_cache.dir
+/mntpliki_mic/C++/MealApp/build/CMakeFiles/edit_cache.dir
+/mntpliki_mic/C++/MealApp/build/CMakeFiles/tests.dir
+/mntpliki_mic/C++/MealApp/build/CMakeFiles/my_app.dir
+/mntpliki_mic/C++/MealApp/build/CMakeFiles/my_app_src.dir

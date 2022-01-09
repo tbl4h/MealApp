@@ -1,4 +1,3 @@
-#pragma once
 #include "../headers/meals_list.h"
 
 namespace MealsList
@@ -14,12 +13,13 @@ namespace MealsList
 
     MealsList::~MealsList()
     {
+        //sqlite3_finalize(_impl->_Db);
         sqlite3_close(_impl->_Db);
-        /*
+        
         if(_impl->_ZErrMsg != nullptr)
             std::free(_impl->_ZErrMsg);
-            */
-    };
+        
+    }
     int MealsList::my_special_callback(void *unused, int count, char **data, char **columns)
     {
         
@@ -34,11 +34,11 @@ namespace MealsList
         printf("\n");
 
         return 0;
-    };
+    }
     MealsList::MealsList()
     {
         _impl = std::make_unique<Impl>();
-        _impl->_Rc = sqlite3_open("./MealsList.db", &_impl->_Db);
+        _impl->_Rc = sqlite3_open_v2("./MealsList.db", &_impl->_Db,SQLITE_OPEN_CREATE | SQLITE_OPEN_READWRITE,_impl->_ZErrMsg);
         if (_impl->_Rc)
         {
             std::cerr << "Can't open database: MealsList.db\n";
@@ -74,7 +74,7 @@ namespace MealsList
         }
         _impl->_Sql = "";
         std::cout << "Create Meals list." << std::endl;
-    };
+    }
     void MealsList::addMeal(const std::string &meal)
     {
         MealData tmp;
@@ -92,7 +92,7 @@ namespace MealsList
     {
         return _impl->_MealsList.size();
     }
-    bool MealsList::findMeal(const std::string &mealName)
+    bool [[nodiscard ("Consider to use return value.")]] MealsList::findMeal(const std::string &mealName)
     {
         auto isInData = _impl->_MealsList.find(mealName);
         if (isInData == _impl->_MealsList.end())

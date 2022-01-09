@@ -31,7 +31,7 @@ Instaed hdf5 database, project switch to SQLite3 database. To get it work in the
 To install:
 1) mkdir build
 2) cd build
-3) conan install ..
+3) conan install .. -b missing
 4) cmake ..
 5) make
 6) Binary will be in ./build/bin directory

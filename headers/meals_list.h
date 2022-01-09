@@ -24,8 +24,8 @@ class MealsList : public MealsListInterface {
         ~MealsList();
         MealsList();
         int dataSize()const override;
-        void addMeal(const std::string &meal) override;
-        bool findMeal(const std::string &mealName);
+        void addMeal(const std::string &meal) override;    
+        bool [[nodiscard ("Consider to use return value.")]] findMeal(const std::string &mealName) ;
         void addMealsList(std::unordered_map<std::string,MealData> tmpMealsList);
         void addMealsToDatabase();
 };
@@ -35,3 +35,6 @@ class MockMealsList : public MealsListInterface {
     MOCK_METHOD(void,addMeal,(const std::string &),(override));
 };
 }
+
+/* TO DO */
+/* Change some methods for lambda expressions. */ 

@@ -3,5 +3,9 @@ libcurl/7.80.0
 gtest/1.11.0
 sqlite3/3.37.1
 mpc/1.2.0
+[options]
+#gtest:shared=True
 [generators]
 cmake
+[imports]
+lib, *.so -> ./bin
