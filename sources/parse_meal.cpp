@@ -6,7 +6,7 @@ namespace MealParser
     struct MealParser::MemoryStruct
     {
         char *memory = nullptr;
-        size_t size {0};
+        size_t size{0} ;
     };
     struct MealParser::Impl
     {
@@ -51,7 +51,7 @@ namespace MealParser
         size_t realsize = size * nmemb;
 
         MemoryStruct *mem = (MemoryStruct *)userp;
-
+        
         char *ptr = (char *)std::realloc(mem->memory, mem->size + realsize + 1);
         if (!ptr)
         {
@@ -59,7 +59,7 @@ namespace MealParser
             std::cout << ("Not enough memory (realloc returned NULL)\n");
             return 0;
         }
-
+        
         mem->memory = ptr;
         std::memcpy(&(mem->memory[mem->size]), contents, realsize);
         mem->size += realsize;

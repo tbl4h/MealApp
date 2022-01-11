@@ -28,7 +28,7 @@ namespace constexpr_containers
     class vector
     {
         using storage_t = std::array<Value, Size>;
-        stroage_t m_data{};
+        storage_t m_data{};
         std::size_t m_size{0};
 
     public:
@@ -62,7 +62,7 @@ namespace constexpr_containers
             }
         }
     };
-
+    /*
     template <typename CharType, size_t Size>
     struct basic_string : vector<CharType, Size>
     {
@@ -78,7 +78,7 @@ namespace constexpr_containers
     class map
     {
         using storage_t std::array<cx::pair<Key, Value>, Size>
-            storage_t m_data{};
+            storage_t m_data{}; 
         std::size_t m_size{0};
 
     public:
@@ -107,4 +107,5 @@ namespace constexpr_containers
             }
         }
     };
+    */
 }

@@ -71,7 +71,7 @@ add_compile_options(
 #Enable warning for specified compiler (should finaly add -Werror to get all possible errors.)
 target_compile_options(my_app_src PUBLIC
   $<$<CXX_COMPILER_ID:MSVC>:/W4 /WX>
-  $<$<NOT:$<CXX_COMPILER_ID:MSVC>>:-Wall -Wextra -Wfatal-errors -pedantic -fPIC>
+  $<$<NOT:$<CXX_COMPILER_ID:MSVC>>:-Wall -Wextra -Wfatal-errors -pedantic -fPIC -Wconversion>
 )
 
 add_executable(my_app ${CMAKE_CURRENT_SOURCE_DIR}/main.cpp )
