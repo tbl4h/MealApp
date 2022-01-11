@@ -57,6 +57,7 @@ else()
   message(STATUS "SQLite3 version: " ${SQLite3_VERSION})
 endif()
 
+
 #Build source lib.
 file(GLOB_RECURSE MY_APP_SRC ${CMAKE_CURRENT_SOURCE_DIR}/sources/*.cpp)
 file(GLOB_RECURSE MY_APP_HEADERS ${CMAKE_CURRENT_SOURCE_DIR}/headers/*.h)
@@ -93,6 +94,7 @@ endif (SQLite3_FOUND)
 #target_link_libraries(my_app googletest libcurl)
 # @END UNCOMMENT SECTION
 
+
 file(GLOB_RECURSE MY_APP_TEST_SRC ${CMAKE_CURRENT_SOURCE_DIR}/test/*.cpp)
 add_executable(tests ${MY_APP_TEST_SRC})
 check_pie_supported(OUTPUT_VARIABLE output LANGUAGES CXX)
@@ -114,7 +116,7 @@ target_link_libraries(tests ${CONAN_LIBS})
 #Enable warning for specified compiler
 target_compile_options(tests PUBLIC
   $<$<CXX_COMPILER_ID:MSVC>:/W4 /WX>
-  $<$<NOT:$<CXX_COMPILER_ID:MSVC>>:-Wall -Wextra -Wfatal-errors -pedantic -fPIC>
+  $<$<NOT:$<CXX_COMPILER_ID:MSVC>>:-Wall -Wextra -Wfatal-errors -pedantic -fPIC -fstack-protector-all -fsanitize=address -fsanitize=undefined  >
 )
 
 #if(CMAKE_BUILD_TYPE STREQUAL DEBUG)

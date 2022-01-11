@@ -32,7 +32,7 @@ namespace MealParser
         curl_easy_setopt(_impl->_Curl, CURLOPT_WRITEFUNCTION, MealParser::WriteMemoryCallback);
         curl_easy_setopt(_impl->_Curl, CURLOPT_WRITEDATA, (void *)&_impl->_Chunk);
         curl_easy_setopt(_impl->_Curl, CURLOPT_USERAGENT, "libcurl-agent/1.0");
-        curl_easy_setopt(_impl->_Curl, CURLOPT_POSTFIELDS, _impl->_Postthis);
+        curl_easy_setopt(_impl->_Curl, CURLOPT_POSTFIELDS, _impl->_Postthis.data());
         curl_easy_setopt(_impl->_Curl, CURLOPT_POSTFIELDSIZE, _impl->_Postthis.size());
         return true;
     }
@@ -51,7 +51,7 @@ namespace MealParser
         size_t realsize = size * nmemb;
 
         MemoryStruct *mem = (MemoryStruct *)userp;
-        
+                
         char *ptr = (char *)std::realloc(mem->memory, mem->size + realsize + 1);
         if (!ptr)
         {
@@ -72,8 +72,8 @@ namespace MealParser
     {
         std::string string_number = std::to_string(number);
         std::string MainURL(_impl->_MainUrl);
-
         MainURL.append(string_number);
+        
         curl_easy_setopt(_impl->_Curl, CURLOPT_URL, MainURL.c_str());
         _impl->_Res = curl_easy_perform(_impl->_Curl);
         if (_impl->_Res != CURLE_OK)
