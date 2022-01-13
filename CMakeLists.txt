@@ -30,8 +30,8 @@ conan_basic_setup()
 #set(CMAKE_CPP_COMPILER gcc)
 #Set sanitizer flags
 
-set (CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -fno-omit-frame-pointer  -fsanitize=address -g")
-set (CMAKE_LINKER_FLAGS_DEBUG "${CMAKE_LINKER_FLAGS_DEBUG} -fno-omit-frame-pointer -fsanitize=address -g")
+set (CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -fno-omit-frame-pointer  -fsanitize=address -fsanitize=address  -fsanitize=undefined -lubsan -g")
+set (CMAKE_LINKER_FLAGS_DEBUG "${CMAKE_LINKER_FLAGS_DEBUG} -fno-omit-frame-pointer -fsanitize=address -fsanitize=address  -fsanitize=undefined -lubsan -g")
 
 #Set libmpc path
 set (LIBMPC_PATH "/usr/lib/x86_64-linux-gnu/libmpc.so.3")
@@ -54,9 +54,10 @@ find_package (SQLite3)
 if(NOT SQLite3_FOUND)
   message(WARNING "SQLite3 is not installed on thesystem.\n")
 else()
-  message(STATUS "SQLite3 version: " ${SQLite3_VERSION})
+  message(STATUS "SQLite3 version: " ${SQLite3_VERSION} ${SQLite3_INCLUDE_DIRS})
 endif()
-
+enable_testing()
+find_package(GTest REQUIRED)
 
 #Build source lib.
 file(GLOB_RECURSE MY_APP_SRC ${CMAKE_CURRENT_SOURCE_DIR}/sources/*.cpp)
@@ -64,6 +65,10 @@ file(GLOB_RECURSE MY_APP_HEADERS ${CMAKE_CURRENT_SOURCE_DIR}/headers/*.h)
 add_library(my_app_src SHARED ${MY_APP_SRC} ${MY_APP_HEADERS})
 target_include_directories(my_app_src PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/source)
 target_include_directories(my_app_src PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/headers)
+if (SQLite3_FOUND)
+  include_directories(${SQLite3_INCLUDE_DIRS})
+  target_link_libraries (my_app_src ${SQLite3_LIBRARIES})
+endif (SQLite3_FOUND)
 #Use C++ not C linker properties
 #set_target_properties(my_app_src PROPERTIES LINKER_LANGUAGE CXX)
 add_compile_options(
@@ -93,7 +98,8 @@ endif (SQLite3_FOUND)
 # @START UNCOMMENT SECTION
 #target_link_libraries(my_app googletest libcurl)
 # @END UNCOMMENT SECTION
-
+set (CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -fno-omit-frame-pointer  -fsanitize=address -fsanitize=address  -fsanitize=undefined -lubsan -g")
+set (CMAKE_LINKER_FLAGS_DEBUG "${CMAKE_LINKER_FLAGS_DEBUG} -fno-omit-frame-pointer -fsanitize=address -fsanitize=address  -fsanitize=undefined -lubsan -g")
 
 file(GLOB_RECURSE MY_APP_TEST_SRC ${CMAKE_CURRENT_SOURCE_DIR}/test/*.cpp)
 add_executable(tests ${MY_APP_TEST_SRC})
@@ -109,6 +115,8 @@ if (SQLite3_FOUND)
   include_directories(${SQLite3_INCLUDE_DIRS})
   target_link_libraries (tests ${SQLite3_LIBRARIES})
 endif (SQLite3_FOUND)
+include_directories(${GTEST_INCLUDE_DIRS})
+target_link_libraries(tests ${GTEST_LIBRARIES})
 # @START UNCOMMENT SECTION
 #target_link_libraries(tests googletest libcurl)
 # @END UNCOMMENT SECTION
@@ -116,7 +124,7 @@ target_link_libraries(tests ${CONAN_LIBS})
 #Enable warning for specified compiler
 target_compile_options(tests PUBLIC
   $<$<CXX_COMPILER_ID:MSVC>:/W4 /WX>
-  $<$<NOT:$<CXX_COMPILER_ID:MSVC>>:-Wall -Wextra -Wfatal-errors -pedantic -fPIC -fstack-protector-all -fsanitize=address -fsanitize=undefined  >
+  $<$<NOT:$<CXX_COMPILER_ID:MSVC>>:-Wall -Wextra -Wfatal-errors -pedantic -fPIC -fstack-protector-all  >
 )
 
 #if(CMAKE_BUILD_TYPE STREQUAL DEBUG)

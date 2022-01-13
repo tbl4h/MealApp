@@ -8,4 +8,4 @@ mpc/1.2.0
 [generators]
 cmake
 [imports]
-lib, *.so -> ./bin
+lib, *.so -> ./bin 
