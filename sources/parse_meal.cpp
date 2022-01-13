@@ -11,39 +11,39 @@ namespace MealParser
     struct MealParser::Impl
     {
         
-        std::unordered_map<std::string, MealData>  _MealsCacheData;
-        CURL *_Curl = nullptr;
-        bool _CurlInit;
-        CURLcode _Res;
-        MealParser::MemoryStruct _Chunk;
-        std::string downloadMemory;
-        static constexpr std::string_view _Postthis {"Field=1&Field=2&Field=3"};
-        static constexpr std::string_view _MainUrl {"https://www.bbcgoodfood.com/recipes/collection/family-meal-recipes?page="};
+        std::unordered_map<std::string, MealData>  MealsCacheData;
+        CURL *Curl = nullptr;
+        bool CurlInit;
+        CURLcode Res;
+        MealParser::MemoryStruct Chunk;
+        std::string DownloadMemory;
+        static constexpr std::string_view Postthis {"Field=1&Field=2&Field=3"};
+        static constexpr std::string_view MainUrl {"https://www.bbcgoodfood.com/recipes/collection/family-meal-recipes?page="};
     };
-    constexpr std::string_view MealParser::Impl::_Postthis;
-    constexpr std::string_view MealParser::Impl::_MainUrl;
+    constexpr std::string_view MealParser::Impl::Postthis;
+    constexpr std::string_view MealParser::Impl::MainUrl;
     
     bool MealParser::initCurl()
-    {
+    {        
         curl_global_init(CURL_GLOBAL_ALL);
-        _impl->_Curl = curl_easy_init();
-        if (_impl->_Curl == NULL)
+        impl->Curl = curl_easy_init();
+        if (impl->Curl == NULL)
             throw std::runtime_error("libCurl faild to initialize.\n");
-        curl_easy_setopt(_impl->_Curl, CURLOPT_WRITEFUNCTION, MealParser::WriteMemoryCallback);
-        curl_easy_setopt(_impl->_Curl, CURLOPT_WRITEDATA, (void *)&_impl->_Chunk);
-        curl_easy_setopt(_impl->_Curl, CURLOPT_USERAGENT, "libcurl-agent/1.0");
-        curl_easy_setopt(_impl->_Curl, CURLOPT_POSTFIELDS, _impl->_Postthis.data());
-        curl_easy_setopt(_impl->_Curl, CURLOPT_POSTFIELDSIZE, _impl->_Postthis.size());
+        curl_easy_setopt(impl->Curl, CURLOPT_WRITEFUNCTION, MealParser::WriteMemoryCallback);
+        curl_easy_setopt(impl->Curl, CURLOPT_WRITEDATA, (void *)&impl->Chunk);
+        curl_easy_setopt(impl->Curl, CURLOPT_USERAGENT, "libcurl-agent/1.0");
+        curl_easy_setopt(impl->Curl, CURLOPT_POSTFIELDS, impl->Postthis.data());
+        curl_easy_setopt(impl->Curl, CURLOPT_POSTFIELDSIZE, impl->Postthis.size());
         return true;
     }
-    MealParser::MealParser() : _impl(new Impl)
+    MealParser::MealParser() : impl(new Impl)
     {
-        _impl->_CurlInit = initCurl();
+        impl->CurlInit = initCurl();
     }
     MealParser::~MealParser()
     {
-        curl_easy_cleanup(_impl->_Curl);
-        free(_impl->_Chunk.memory);
+        curl_easy_cleanup(impl->Curl);
+        free(impl->Chunk.memory);
         curl_global_cleanup();
     }
     size_t MealParser::WriteMemoryCallback(void *contents, size_t size, size_t nmemb, void *userp)
@@ -59,7 +59,7 @@ namespace MealParser
             std::cout << ("Not enough memory (realloc returned NULL)\n");
             return 0;
         }
-        
+        std::cout << "\nReal size is: " << realsize << "\n";
         mem->memory = ptr;
         std::memcpy(&(mem->memory[mem->size]), contents, realsize);
         mem->size += realsize;
@@ -71,21 +71,21 @@ namespace MealParser
     bool [[nodiscard("Function returned value should be use.")]] MealParser::getPage(int number)
     {
         std::string string_number = std::to_string(number);
-        std::string MainURL(_impl->_MainUrl);
+        std::string MainURL(impl->MainUrl);
         MainURL.append(string_number);
         
-        curl_easy_setopt(_impl->_Curl, CURLOPT_URL, MainURL.c_str());
-        _impl->_Res = curl_easy_perform(_impl->_Curl);
-        if (_impl->_Res != CURLE_OK)
+        curl_easy_setopt(impl->Curl, CURLOPT_URL, MainURL.c_str());
+        impl->Res = curl_easy_perform(impl->Curl);
+        if (impl->Res != CURLE_OK)
         {
             throw std::runtime_error("curl_easy_perform() failed.\n");
         }
         else
         {
-            _impl->downloadMemory = _impl->_Chunk.memory;
-            const auto header1OpenTag = _impl->downloadMemory.find("<h1>");
-            const auto header1CloseTag = _impl->downloadMemory.find("</h1>");
-            std::string serviceUnavailableError = _impl->downloadMemory.substr(header1OpenTag + 4, header1CloseTag - (header1OpenTag + 4));
+            impl->DownloadMemory = impl->Chunk.memory;
+            const auto header1OpenTag = impl->DownloadMemory.find("<h1>");
+            const auto header1CloseTag = impl->DownloadMemory.find("</h1>");
+            std::string serviceUnavailableError = impl->DownloadMemory.substr(header1OpenTag + 4, header1CloseTag - (header1OpenTag + 4));
             if (serviceUnavailableError == "Error 503 first byte timeout.\n")
             {
                 std::cout << "Error 503.\n";
@@ -104,9 +104,9 @@ namespace MealParser
         std::string unorderedListElementClose("</ul>");
         std::string headerMealNameElement("<h2 class=\"d-inline heading-4\" style=\"color:inherit\">");
 
-        const auto unorderedListStart = _impl->downloadMemory.find(unorderedListElementOpen);
-        const auto unorderedListEnd = _impl->downloadMemory.find(unorderedListElementClose);
-        std::string mealList = _impl->downloadMemory.substr(unorderedListStart, unorderedListEnd - (unorderedListStart + unorderedListElementOpen.size()));
+        const auto unorderedListStart = impl->DownloadMemory.find(unorderedListElementOpen);
+        const auto unorderedListEnd = impl->DownloadMemory.find(unorderedListElementClose);
+        std::string mealList = impl->DownloadMemory.substr(unorderedListStart, unorderedListEnd - (unorderedListStart + unorderedListElementOpen.size()));
         auto headerMealDelimiter = mealList.find(headerMealNameElement);
         auto headerMealDelimiterEnd = mealList.find("</h2>");
         MealData tmp;
@@ -117,7 +117,7 @@ namespace MealParser
             mealName = mealList.substr(headerMealDelimiter + headerMealNameElement.size(), headerMealDelimiterEnd - (headerMealDelimiter + headerMealNameElement.size()));
             if (mealName == terminationMeal)
                 break;
-            _impl->_MealsCacheData.insert(std::make_pair(mealName,tmp));
+            impl->MealsCacheData.insert(std::make_pair(mealName,tmp));
             mealList = mealList.substr(headerMealDelimiterEnd + 5);
         } while (mealName != terminationMeal);
 
@@ -125,16 +125,16 @@ namespace MealParser
     }
     bool MealParser::isGetSuccess()
     {
-        return _impl->_Res == CURLE_OK ? true : false;
+        return impl->Res == CURLE_OK ? true : false;
     }
     void MealParser::listCacheData()
     {
-        if (_impl->_MealsCacheData.size() == 0)
+        if (impl->MealsCacheData.size() == 0)
         {
             std::cout << "Nothing to list." << std::endl;
         }
         else
-            for (auto meal : _impl->_MealsCacheData)
+            for (auto meal : impl->MealsCacheData)
                 std::cout << meal.first << std::endl;
     }
     bool MealParser::getDataFromRange(int start, int end)
@@ -156,9 +156,10 @@ namespace MealParser
             return true;
         }
     }
+
     bool MealParser::findMealInCacheData(std::string meal_name){
-        auto isInData = _impl->_MealsCacheData.find(meal_name);
-        if(isInData != _impl->_MealsCacheData.end()){
+        auto isInData = impl->MealsCacheData.find(meal_name);
+        if(isInData != impl->MealsCacheData.end()){
             std::cout << meal_name << " is found in the cache data." << std::endl;
             return true;
         }else {
@@ -167,6 +168,6 @@ namespace MealParser
         }
     }
     std::unordered_map<std::string, MealData> MealParser::getCacheData() const{
-        return _impl->_MealsCacheData;
+        return impl->MealsCacheData;
     }
 }

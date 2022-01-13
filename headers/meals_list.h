@@ -17,12 +17,11 @@ class MealsListInterface{
 class MealsList : public MealsListInterface {
     private:
         struct Impl;
-        std::unique_ptr<Impl> _impl;
-        // methods
+        std::unique_ptr<Impl> impl;        
         static int my_special_callback(void *unused, int count, char **data, char **columns);
     public:
-        ~MealsList();
         MealsList();
+        ~MealsList();
         int dataSize()const override;
         void addMeal(const std::string &meal) override;    
         bool [[nodiscard ("Consider to use return value.")]] findMeal(const std::string &mealName) ;

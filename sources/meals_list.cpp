@@ -4,22 +4,13 @@ namespace MealsList
 {
     struct MealsList::Impl
     {
-        std::unordered_map<std::string, MealData> _MealsList;
-        sqlite3 *_Db = nullptr;
-        char *_ZErrMsg = nullptr;
-        int _Rc = 0;
-        std::string _Sql;
+        std::unordered_map<std::string, MealData> MealsLIst;
+        sqlite3 *Db = nullptr;
+        char *ZErrMsg = nullptr;
+        int Rc = 0;
+        std::string Sql;
     };
 
-    MealsList::~MealsList()
-    {
-        //sqlite3_finalize(_impl->_Db);
-        sqlite3_close(_impl->_Db);
-        
-        if(_impl->_ZErrMsg != nullptr)
-            std::free(_impl->_ZErrMsg);
-        
-    }
     int MealsList::my_special_callback(void *unused, int count, char **data, char **columns)
     {
         
@@ -35,11 +26,21 @@ namespace MealsList
 
         return 0;
     }
+    MealsList::~MealsList()
+    {
+        /* Free up space disk used in MealsList constructor - specially for all pointers occurring in impl structure */
+
+        sqlite3_close(impl->Db);
+        
+        if(impl->ZErrMsg != nullptr)
+            std::free(impl->ZErrMsg);
+        
+    }
     MealsList::MealsList()
     {
-        _impl = std::make_unique<Impl>();
-        _impl->_Rc = sqlite3_open_v2("./MealsList.db", &_impl->_Db,SQLITE_OPEN_CREATE | SQLITE_OPEN_READWRITE,_impl->_ZErrMsg);
-        if (_impl->_Rc)
+        impl = std::make_unique<Impl>();
+        impl->Rc = sqlite3_open_v2("./MealsList.db", &impl->Db,SQLITE_OPEN_CREATE | SQLITE_OPEN_READWRITE,impl->ZErrMsg);
+        if (impl->Rc)
         {
             std::cerr << "Can't open database: MealsList.db\n";
         }
@@ -47,7 +48,7 @@ namespace MealsList
         {
             std::cerr << "Opened database successfully\n";
         }
-        _impl->_Sql = "CREATE TABLE MEALS("
+        impl->Sql = "CREATE TABLE MEALS("
                       "NAME           TEXT   PRIMARY KEY  NOT NULL,"
                       "INGREDIENTS    TEXT,"
                       "PREPARATION_TIME     INT,"
@@ -60,28 +61,28 @@ namespace MealsList
                       "PROTEIN        INT,"
                       "STEPS          TEXT);";
         /* Execute SQL statement */
-        _impl->_Rc = sqlite3_exec(_impl->_Db, _impl->_Sql.c_str(), MealsList::my_special_callback, NULL, &_impl->_ZErrMsg);
+        impl->Rc = sqlite3_exec(impl->Db, impl->Sql.c_str(), MealsList::my_special_callback, NULL, &impl->ZErrMsg);
 
-        if (_impl->_Rc != SQLITE_OK)
+        if (impl->Rc != SQLITE_OK)
         {
             std::cerr << "Table can't be created.\n"
-                      << _impl->_ZErrMsg << std::endl;
-            sqlite3_free(_impl->_ZErrMsg);
+                      << impl->ZErrMsg << std::endl;
+            sqlite3_free(impl->ZErrMsg);
         }
         else
         {
             std::cerr << "Table created successfully\n";
         }
-        _impl->_Sql = "";
+        impl->Sql = "";
         std::cout << "Create Meals list." << std::endl;
     }
     void MealsList::addMeal(const std::string &meal)
     {
         MealData tmp;
-        auto isInData = _impl->_MealsList.find(meal);
-        if (isInData == _impl->_MealsList.end())
+        auto isInData = impl->MealsLIst.find(meal);
+        if (isInData == impl->MealsLIst.end())
         {
-            _impl->_MealsList.insert(std::make_pair(meal, tmp));
+            impl->MealsLIst.insert(std::make_pair(meal, tmp));
         }
         else
         {
@@ -90,12 +91,12 @@ namespace MealsList
     }
     int MealsList::dataSize() const
     {
-        return _impl->_MealsList.size();
+        return impl->MealsLIst.size();
     }
     bool [[nodiscard ("Consider to use return value.")]] MealsList::findMeal(const std::string &mealName)
     {
-        auto isInData = _impl->_MealsList.find(mealName);
-        if (isInData == _impl->_MealsList.end())
+        auto isInData = impl->MealsLIst.find(mealName);
+        if (isInData == impl->MealsLIst.end())
         {
             return false;
         }
@@ -108,10 +109,10 @@ namespace MealsList
     {
         for (auto tmpMeal : tmpMealsList)
         {
-            auto isMealInTheList = _impl->_MealsList.find(tmpMeal.first);
-            if (isMealInTheList == _impl->_MealsList.end())
+            auto isMealInTheList = impl->MealsLIst.find(tmpMeal.first);
+            if (isMealInTheList == impl->MealsLIst.end())
             {
-                _impl->_MealsList.insert(tmpMeal);
+                impl->MealsLIst.insert(tmpMeal);
             }
             else
             {
@@ -121,7 +122,7 @@ namespace MealsList
     }
     void MealsList::addMealsToDatabase()
     {
-        for (auto Meal : _impl->_MealsList)
+        for (auto Meal : impl->MealsLIst)
         {
 
             std::stringstream my_stream;
@@ -172,14 +173,14 @@ namespace MealsList
             }
             my_stream << "'";
             my_stream << " );";
-            _impl->_Sql = my_stream.str();            
-            _impl->_Rc = sqlite3_exec(_impl->_Db, _impl->_Sql.c_str(), MealsList::my_special_callback, NULL, &_impl->_ZErrMsg);
+            impl->Sql = my_stream.str();            
+            impl->Rc = sqlite3_exec(impl->Db, impl->Sql.c_str(), MealsList::my_special_callback, NULL, &impl->ZErrMsg);
 
-            if (_impl->_Rc != SQLITE_OK)
+            if (impl->Rc != SQLITE_OK)
             {
                 std::cerr << "Can't add values to database: \n"
-                          << _impl->_ZErrMsg << std::endl;
-                sqlite3_free(_impl->_ZErrMsg);
+                          << impl->ZErrMsg << std::endl;
+                sqlite3_free(impl->ZErrMsg);
             }
             else
             {

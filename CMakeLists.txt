@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.16)
 project(MyApplication LANGUAGES CXX)
-set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 include(CheckPIESupported)
 #Instead of use conan manager possible to use CMake module called FetchContent 
@@ -72,7 +72,7 @@ endif (SQLite3_FOUND)
 #Use C++ not C linker properties
 #set_target_properties(my_app_src PROPERTIES LINKER_LANGUAGE CXX)
 add_compile_options(
-    "$<$<STREQUAL:$<TARGET_PROPERTY:LINKER_LANGUAGE>,CXX>:-std=c++17>"
+    "$<$<STREQUAL:$<TARGET_PROPERTY:LINKER_LANGUAGE>,CXX>:-std=c++20>"
 )
 #Enable warning for specified compiler (should finaly add -Werror to get all possible errors.)
 target_compile_options(my_app_src PUBLIC
@@ -91,6 +91,7 @@ if(NOT CMAKE_CXX_LINK_PIE_SUPPORTED)
 endif()
 target_link_libraries(my_app my_app_src)
 target_link_libraries(my_app ${LIBMPC_PATH})
+target_link_libraries(my_app ${CONAN_LIBS})
 if (SQLite3_FOUND)
   include_directories(${SQLite3_INCLUDE_DIRS})
   target_link_libraries (my_app ${SQLite3_LIBRARIES})
@@ -98,8 +99,8 @@ endif (SQLite3_FOUND)
 # @START UNCOMMENT SECTION
 #target_link_libraries(my_app googletest libcurl)
 # @END UNCOMMENT SECTION
-set (CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -fno-omit-frame-pointer  -fsanitize=address -fsanitize=address  -fsanitize=undefined -lubsan -g")
-set (CMAKE_LINKER_FLAGS_DEBUG "${CMAKE_LINKER_FLAGS_DEBUG} -fno-omit-frame-pointer -fsanitize=address -fsanitize=address  -fsanitize=undefined -lubsan -g")
+set (CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -fno-omit-frame-pointer  -fsanitize=address -fsanitize=address  -fsanitize=undefined -lubsan -lcurl -g")
+set (CMAKE_LINKER_FLAGS_DEBUG "${CMAKE_LINKER_FLAGS_DEBUG} -fno-omit-frame-pointer -fsanitize=address -fsanitize=address  -fsanitize=undefined -lubsan -lcurl -g")
 
 file(GLOB_RECURSE MY_APP_TEST_SRC ${CMAKE_CURRENT_SOURCE_DIR}/test/*.cpp)
 add_executable(tests ${MY_APP_TEST_SRC})

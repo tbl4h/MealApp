@@ -20,9 +20,8 @@ CMAKE_ADDR2LINE:FILEPATH=/bin/addr2line
 //Path to a program.
 CMAKE_AR:FILEPATH=/bin/ar
 
-//Choose the type of build, options are: None Debug Release RelWithDebInfo
-// MinSizeRel ...
-CMAKE_BUILD_TYPE:STRING=
+//No help, variable specified on the command line.
+CMAKE_BUILD_TYPE:STRING=Debug
 
 //Enable/Disable color output during build.
 CMAKE_COLOR_MAKEFILE:BOOL=ON
@@ -53,6 +52,9 @@ CMAKE_CXX_FLAGS_RELEASE:STRING=-O3 -DNDEBUG
 //Flags used by the CXX compiler during RELWITHDEBINFO builds.
 CMAKE_CXX_FLAGS_RELWITHDEBINFO:STRING=-O2 -g -DNDEBUG
 
+//No help, variable specified on the command line.
+CMAKE_C_COMPILER:FILEPATH=/bin/x86_64-linux-gnu-gcc-10
+
 //Path to a program.
 CMAKE_DLLTOOL:FILEPATH=CMAKE_DLLTOOL-NOTFOUND
 
@@ -71,8 +73,8 @@ CMAKE_EXE_LINKER_FLAGS_RELEASE:STRING=
 //Flags used by the linker during RELWITHDEBINFO builds.
 CMAKE_EXE_LINKER_FLAGS_RELWITHDEBINFO:STRING=
 
-//Enable/Disable output of compile commands during generation.
-CMAKE_EXPORT_COMPILE_COMMANDS:BOOL=OFF
+//No help, variable specified on the command line.
+CMAKE_EXPORT_COMPILE_COMMANDS:BOOL=TRUE
 
 //Install path prefix, prepended onto install directories.
 CMAKE_INSTALL_PREFIX:PATH=/usr/local
@@ -217,10 +219,10 @@ MyApplication_SOURCE_DIR:STATIC=/media/mic/Pliki_Mic/C++/MealApp
 PKG_CONFIG_EXECUTABLE:FILEPATH=/usr/bin/pkg-config
 
 //Path to a file.
-SQLite3_INCLUDE_DIR:PATH=SQLite3_INCLUDE_DIR-NOTFOUND
+SQLite3_INCLUDE_DIR:PATH=/home/mic/.conan/data/sqlite3/3.37.1/_/_/package/e522f5fd927b6b1cc44a5a30f50a981232b01f74/include
 
 //Path to a library.
-SQLite3_LIBRARY:FILEPATH=SQLite3_LIBRARY-NOTFOUND
+SQLite3_LIBRARY:FILEPATH=/home/mic/.conan/data/sqlite3/3.37.1/_/_/package/e522f5fd927b6b1cc44a5a30f50a981232b01f74/lib/libsqlite3.a
 
 //Path to a library.
 pkgcfg_lib_PC_CURL_curl:FILEPATH=/usr/lib/x86_64-linux-gnu/libcurl.so
@@ -266,6 +268,10 @@ CMAKE_CXX_FLAGS_MINSIZEREL-ADVANCED:INTERNAL=1
 CMAKE_CXX_FLAGS_RELEASE-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_CXX_FLAGS_RELWITHDEBINFO
 CMAKE_CXX_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
+//Is the '-no-pie' option(s) supported
+CMAKE_CXX_LINK_NO_PIE_SUPPORTED:INTERNAL=TRUE
+//Is the '-fPIE -pie' option(s) supported
+CMAKE_CXX_LINK_PIE_SUPPORTED:INTERNAL=TRUE
 //ADVANCED property for variable: CMAKE_DLLTOOL
 CMAKE_DLLTOOL-ADVANCED:INTERNAL=1
 //Path to cache edit program executable.
@@ -377,6 +383,8 @@ CURL_LIBRARY_RELEASE-ADVANCED:INTERNAL=1
 FIND_PACKAGE_MESSAGE_DETAILS_CURL:INTERNAL=[/usr/lib/x86_64-linux-gnu/libcurl.so][/usr/include/x86_64-linux-gnu][c ][v7.68.0()]
 //Details about finding GTest
 FIND_PACKAGE_MESSAGE_DETAILS_GTest:INTERNAL=[/usr/lib/x86_64-linux-gnu/libgtest.a][/usr/include][/usr/lib/x86_64-linux-gnu/libgtest_main.a][v()]
+//Details about finding SQLite3
+FIND_PACKAGE_MESSAGE_DETAILS_SQLite3:INTERNAL=[/home/mic/.conan/data/sqlite3/3.37.1/_/_/package/e522f5fd927b6b1cc44a5a30f50a981232b01f74/include][/home/mic/.conan/data/sqlite3/3.37.1/_/_/package/e522f5fd927b6b1cc44a5a30f50a981232b01f74/lib/libsqlite3.a][v3.37.1()]
 //ADVANCED property for variable: GTEST_INCLUDE_DIR
 GTEST_INCLUDE_DIR-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: GTEST_LIBRARY
