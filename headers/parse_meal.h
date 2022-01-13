@@ -66,8 +66,8 @@ namespace MealParser
         /**
          * @brief Get the Data From Range of possible website pages
          * 
-         * @param start is first webpage witch of starts to download
-         * @param end is last webpage in download range
+         * @param start is first webpage witch of starts to downloading
+         * @param end is last webpage in downloading range
          * @return true if all arguments are in the possible range  
          * @return false when ones of the argument is out of the range
          */
@@ -80,7 +80,7 @@ namespace MealParser
         /**
          * @brief finds meal in the list 
          * 
-         * @param meal_name 
+         * @param meal_name contains searching name
          * @return true if meal pased to the function is on the meals list
          * @return false if there is no meal name  on the current list
          */
