@@ -6,5 +6,5 @@
 int main(int argc, char *argv[]) {
     MealParser::MealParser myParser;
     MealsList::MealsList myList;
-    myParser.getPage();
+    myParser.getDataFromRange(1,4);
 }

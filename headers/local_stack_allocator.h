@@ -25,8 +25,10 @@ public:
   auto do_deallocate(
       [[maybe_unused]] void* begin_ptr, 
       [[maybe_unused]] std::size_t bytes,
-      [[maybe_unused]] std::size_t alignment) -> void {
-    // noop
+      [[maybe_unused]] std::size_t alignment) -> void {      
+  }
+  void reset(){
+    bytes_allocated = 0;
   }
 
   auto do_is_equal(const std::pmr::memory_resource& other) const noexcept -> bool override {
