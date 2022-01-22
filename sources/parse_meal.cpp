@@ -3,11 +3,7 @@
 
 namespace MealParser
 {
-    struct MealParser::MemoryStruct
-    {
-        char *memory = nullptr;
-        size_t size{0};
-    };
+
     struct MealParser::Impl
     {
 
@@ -15,19 +11,15 @@ namespace MealParser
         CURL *Curl = nullptr;
         bool CurlInit;
         CURLcode Res;
-        MealParser::MemoryStruct Chunk;
         std::string DownloadMemory;
         static constexpr std::string_view Postthis{"Field=1&Field=2&Field=3"};
         static constexpr std::string_view MainUrl{"https://www.bbcgoodfood.com/recipes/collection/family-meal-recipes?page="};
     };
+
     inline static int total_allocated_size = 0;
     constexpr std::string_view MealParser::Impl::Postthis;
     constexpr std::string_view MealParser::Impl::MainUrl;
-    stack_checking_resource<1641224> resource;
-    std::pmr::string my_str(&resource);
 
-    static std::string test;
-    static int total = 0;
     bool MealParser::initCurl()
     {
         curl_global_init(CURL_GLOBAL_ALL);
@@ -44,13 +36,13 @@ namespace MealParser
     MealParser::MealParser()
     {
         impl = std::make_unique<Impl>();
-        my_str.reserve(1541224);
+        
+        my_str.reserve(541224);
         impl->CurlInit = initCurl();
     }
     MealParser::~MealParser()
     {
         curl_easy_cleanup(impl->Curl);
-        free(impl->Chunk.memory);
         curl_global_cleanup();
     }
     size_t MealParser::WriteMemoryCallback(void *contents, size_t size, size_t nmemb, void *userp)
@@ -79,6 +71,7 @@ namespace MealParser
         else
         {
             impl->DownloadMemory = my_str;            
+            my_str.clear();
             const auto header1OpenTag = impl->DownloadMemory.find("<h1>");
             const auto header1CloseTag = impl->DownloadMemory.find("</h1>");
             std::string serviceUnavailableError = impl->DownloadMemory.substr(header1OpenTag + 4, header1CloseTag - (header1OpenTag + 4));
@@ -181,3 +174,6 @@ namespace MealParser
         return impl->MealsCacheData;
     }
 }
+
+/* TODO */
+/* Eliminate Global variable my_string and resource */

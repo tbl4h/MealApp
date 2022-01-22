@@ -21,8 +21,9 @@ namespace MealParser
     class MealParser
     {
     private:
-        struct Impl;                
-        struct MemoryStruct;
+        struct Impl;
+        inline static stack_checking_resource<641224> resource;
+        inline static std::pmr::string my_str{&MealParser::resource};                
         std::unique_ptr<Impl> impl;
         /**
          * @brief initialized all sources required by CURLib
