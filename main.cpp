@@ -7,4 +7,8 @@ int main(int argc, char *argv[]) {
     MealParser::MealParser myParser;
     MealsList::MealsList myList;
     myParser.getDataFromRange(1,4);
+    myList.addMealsList(myParser.getCacheData());
+    myList.addMealsToDatabase();
+    myList.displayList();
+    
 }

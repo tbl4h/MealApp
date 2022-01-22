@@ -43,6 +43,7 @@ namespace MealsList
         bool [[nodiscard("Consider to use return value.")]] findMeal(const std::string &mealName);
         void addMealsList(std::unordered_map<std::string, MealData> tmpMealsList);
         void addMealsToDatabase();
+        void displayList();        
     };
 
 }

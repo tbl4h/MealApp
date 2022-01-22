@@ -4,7 +4,7 @@ namespace MealsList
 {
     struct MealsList::Impl
     {
-        std::unordered_map<std::string, MealData> MealsLIst;
+        std::unordered_map<std::string, MealData> MealsList_;
         sqlite3 *Db = nullptr;
         char *ZErrMsg = nullptr;
         int Rc = 0;
@@ -79,15 +79,15 @@ namespace MealsList
     }
     int MealsList::dataSize() const 
     { 
-        return impl->MealsLIst.size();
+        return impl->MealsList_.size();
         }
     void MealsList::addMeal(const std::string &meal)
     {
         MealData tmp;
-        auto isInData = impl->MealsLIst.find(meal);
-        if (isInData == impl->MealsLIst.end())
+        auto isInData = impl->MealsList_.find(meal);
+        if (isInData == impl->MealsList_.end())
         {
-            impl->MealsLIst.insert(std::make_pair(meal, tmp));
+            impl->MealsList_.insert(std::make_pair(meal, tmp));
         }
         else
         {
@@ -97,8 +97,8 @@ namespace MealsList
 
     bool [[nodiscard ("Consider to use return value.")]] MealsList::findMeal(const std::string &mealName)
     {
-        auto isInData = impl->MealsLIst.find(mealName);
-        if (isInData == impl->MealsLIst.end())
+        auto isInData = impl->MealsList_.find(mealName);
+        if (isInData == impl->MealsList_.end())
         {
             return false;
         }
@@ -111,10 +111,10 @@ namespace MealsList
     {
         for (auto tmpMeal : tmpMealsList)
         {
-            auto isMealInTheList = impl->MealsLIst.find(tmpMeal.first);
-            if (isMealInTheList == impl->MealsLIst.end())
+            auto isMealInTheList = impl->MealsList_.find(tmpMeal.first);
+            if (isMealInTheList == impl->MealsList_.end())
             {
-                impl->MealsLIst.insert(tmpMeal);
+                impl->MealsList_.insert(tmpMeal);
             }
             else
             {
@@ -124,7 +124,7 @@ namespace MealsList
     }
     void MealsList::addMealsToDatabase()
     {
-        for (auto Meal : impl->MealsLIst)
+        for (auto Meal : impl->MealsList_)
         {
 
             std::stringstream my_stream;
@@ -188,6 +188,11 @@ namespace MealsList
             {
                 std::cerr << "Add value successfully.\n";
             }
+        }
+    }
+    void MealsList::displayList(){
+        for(const auto& [name,data] : impl->MealsList_){
+            std::cout << name << '\n';
         }
     }
 }
