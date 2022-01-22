@@ -32,9 +32,10 @@ namespace MealsList
 
         sqlite3_close(impl->Db);
         
+        /*
         if(impl->ZErrMsg != nullptr)
             std::free(impl->ZErrMsg);
-        
+        */
     }
     MealsList::MealsList()
     {
@@ -76,6 +77,10 @@ namespace MealsList
         impl->Sql = "";
         std::cout << "Create Meals list." << std::endl;
     }
+    int MealsList::dataSize() const 
+    { 
+        return impl->MealsLIst.size();
+        }
     void MealsList::addMeal(const std::string &meal)
     {
         MealData tmp;
@@ -89,10 +94,7 @@ namespace MealsList
             std::cout << "Meal is actually in meals list." << std::endl;
         }
     }
-    int MealsList::dataSize() const
-    {
-        return impl->MealsLIst.size();
-    }
+
     bool [[nodiscard ("Consider to use return value.")]] MealsList::findMeal(const std::string &mealName)
     {
         auto isInData = impl->MealsLIst.find(mealName);

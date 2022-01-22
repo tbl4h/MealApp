@@ -20,6 +20,7 @@ namespace MealParser
         static constexpr std::string_view Postthis {"Field=1&Field=2&Field=3"};
         static constexpr std::string_view MainUrl {"https://www.bbcgoodfood.com/recipes/collection/family-meal-recipes?page="};
     };
+    inline static int total_allocated_size = 0;
     constexpr std::string_view MealParser::Impl::Postthis;
     constexpr std::string_view MealParser::Impl::MainUrl;
     
@@ -36,8 +37,9 @@ namespace MealParser
         curl_easy_setopt(impl->Curl, CURLOPT_POSTFIELDSIZE, impl->Postthis.size());
         return true;
     }
-    MealParser::MealParser() : impl(new Impl)
-    {
+    MealParser::MealParser()
+    {   
+        impl = std::make_unique<Impl>();
         impl->CurlInit = initCurl();
     }
     MealParser::~MealParser()
@@ -60,6 +62,8 @@ namespace MealParser
             return 0;
         }
         std::cout << "\nReal size is: " << realsize << "\n";
+        total_allocated_size += realsize;
+        std::cout << "Total Allocated size: " << total_allocated_size << '\n';
         mem->memory = ptr;
         std::memcpy(&(mem->memory[mem->size]), contents, realsize);
         mem->size += realsize;

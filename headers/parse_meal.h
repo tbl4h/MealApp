@@ -14,6 +14,7 @@
 #include <memory>
 #include <unordered_map>
 #include "../headers/shared_structure.h"
+#include "./headers/local_stack_allocator.h"
 
 namespace MealParser
 {    

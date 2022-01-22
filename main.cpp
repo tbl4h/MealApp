@@ -4,5 +4,7 @@
 #include "./headers/parse_meal.h"
 
 int main(int argc, char *argv[]) {
-    // MealParser::MealParser myParser;
+    MealParser::MealParser myParser;
+    MealsList::MealsList myList;
+    myParser.getPage();
 }

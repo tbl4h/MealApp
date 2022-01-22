@@ -30,8 +30,8 @@ conan_basic_setup()
 #set(CMAKE_CPP_COMPILER gcc)
 #Set sanitizer flags
 
-set (CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -fno-omit-frame-pointer  -fsanitize=address -fsanitize=address  -fsanitize=undefined -lubsan -g")
-set (CMAKE_LINKER_FLAGS_DEBUG "${CMAKE_LINKER_FLAGS_DEBUG} -fno-omit-frame-pointer -fsanitize=address -fsanitize=address  -fsanitize=undefined -lubsan -g")
+set (CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -fno-omit-frame-pointer  -fsanitize=address -fsanitize=address  -fsanitize=undefined -Wattributes -lubsan -g")
+set (CMAKE_LINKER_FLAGS_DEBUG "${CMAKE_LINKER_FLAGS_DEBUG} -fno-omit-frame-pointer -fsanitize=address -fsanitize=address  -fsanitize=undefined -lubsan -Wattributes -g")
 
 #Set libmpc path
 set (LIBMPC_PATH "/usr/lib/x86_64-linux-gnu/libmpc.so.3")
@@ -99,8 +99,8 @@ endif (SQLite3_FOUND)
 # @START UNCOMMENT SECTION
 #target_link_libraries(my_app googletest libcurl)
 # @END UNCOMMENT SECTION
-set (CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -fno-omit-frame-pointer  -fsanitize=address -fsanitize=address  -fsanitize=undefined -lubsan -lcurl -g")
-set (CMAKE_LINKER_FLAGS_DEBUG "${CMAKE_LINKER_FLAGS_DEBUG} -fno-omit-frame-pointer -fsanitize=address -fsanitize=address  -fsanitize=undefined -lubsan -lcurl -g")
+set (CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -fno-omit-frame-pointer  -fsanitize=address -fsanitize=address  -fsanitize=undefined -Wattributes -lubsan -lcurl -g")
+set (CMAKE_LINKER_FLAGS_DEBUG "${CMAKE_LINKER_FLAGS_DEBUG} -fno-omit-frame-pointer -fsanitize=address -fsanitize=address  -fsanitize=undefined -Wattributes -lubsan -lcurl -g")
 
 file(GLOB_RECURSE MY_APP_TEST_SRC ${CMAKE_CURRENT_SOURCE_DIR}/test/*.cpp)
 add_executable(tests ${MY_APP_TEST_SRC})

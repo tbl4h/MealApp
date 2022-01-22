@@ -1,11 +1,11 @@
 #pragma once
 #include <gtest/gtest.h>
-#include "gmock/gmock.h"
-#include "../headers/meal.h"
-#include "../headers/rolling_function.h"
-#include "../headers/meals_list.h"
+#include <gmock/gmock.h>
+#include "./../headers/meal.h"
+#include "./../headers/rolling_function.h"
+#include "./../headers/meals_list.h"
 #include <memory>
-#include "../headers/parse_meal.h"
+#include "./../headers/parse_meal.h"
 
 /*
 TEST(Meal_class, constructor)
