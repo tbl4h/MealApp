@@ -1,80 +1,45 @@
 #include <memory_resource>
+#include <exception>
 #include <iostream>
-#include <bitset>
+#include <cstdint>
+#include <pthread.h>
+#include <string>
 #include <array>
-#include <memory>
 
-template <class T>
-class allocator
-{
+template <std::size_t Size> 
+class stack_checking_resource final : public std::pmr::memory_resource {
 public:
-    using value_type = T;
 
-    allocator() noexcept
-    {
-        std::cout << "m_data_pointer value: " << this->m_data_pointer << '\n';
-        std::cout << "m_data_alignment_size value: " << this->m_alignment_size << '\n';
-        m_data_pointer = const_cast<T*>(m_data);
-        offset = 0;
-    } // not required, unless used
-    template <class U>
-    allocator(allocator<U> const &) noexcept {}
+  auto do_allocate(std::size_t bytes, [[maybe_unused]] std::size_t alignment) -> void* override {
+    if(bytes > Size) throw std::bad_alloc();
+    auto ret = reinterpret_cast<void*>(m_buffer + this->bytes_allocated);
+    std::size_t act_size = Size - this->bytes_allocated;
+    ret = std::align(alignment,bytes,ret,act_size);
+    if(ret == nullptr) throw std::bad_alloc();
+    bytes_allocated += bytes;
+    if(bytes_allocated > Size) throw std::bad_alloc();
+    return ret;
+  }
 
-    inline bool is_aligned(T *ptr, std::size_t alignment = alignof(T)) noexcept
-    {
-        auto iptr = reinterpret_cast<size_t>(ptr);
-        return !(iptr % alignment);
+  [[maybe_unused]]
+  auto do_deallocate(
+      [[maybe_unused]] void* begin_ptr, 
+      [[maybe_unused]] std::size_t bytes,
+      [[maybe_unused]] std::size_t alignment) -> void {
+    // noop
+  }
+
+  auto do_is_equal(const std::pmr::memory_resource& other) const noexcept -> bool override {
+    try {
+      [[maybe_unused]]
+      const auto& _ = dynamic_cast<decltype(*this)&>(other);
+      return true;
+    } catch(const std::bad_cast&) {
+      return false;
     }
+  }
 
-    value_type * // Use pointer if pointer is not a value_type*
-    allocate(std::size_t size, std::size_t aligned = m_alignment_size)
-    {
-        // bool is_aligned_val = is_aligned(m_data_pointer);
-        // if (is_aligned_val){
-        //     T *result = reinterpret_cast<T *>(m_data_pointer);
-        //     m_data_pointer = (T*)m_data_pointer + sizeof(T);
-        //     return result;
-        // }
-        // Check to see if the backing memory has space left
-	    if (offset + size <= m_data_length) {
-		void *ptr = &m_data[offset];
-		offset += size;
-		// Zero new memory by default
-		memset(ptr, 0, size);
-		return ptr;
-    }
-
-    void
-    deallocate(value_type *p, std::size_t) noexcept // Use pointer if pointer is not a value_type*
-    {
-        // m_data_pointer = m_data.begin();
-    }
-
-public:
-    static constexpr T m_data[8]{0};
-    static T *m_data_pointer;
-    static constexpr std::size_t m_data_length{8};
-    static constexpr std::size_t m_alignment_size{alignof(T)};
-    std::size_t offset;
+private:
+  std::byte m_buffer[Size];
+  inline static std::size_t bytes_allocated = 0;
 };
-
-// template <class U>
-// char* allocator<U>::m_data;
-template <class U>
-U* allocator<U>::m_data_pointer;
-template<class U>
-constexpr std::size_t allocator<U>::m_data_length;
-template <class U>
-constexpr std::size_t allocator<U>::m_alignment_size;
-
-template <class T, class U>
-bool operator==(allocator<T> const &, allocator<U> const &) noexcept
-{
-    return true;
-}
-
-template <class T, class U>
-bool operator!=(allocator<T> const &x, allocator<U> const &y) noexcept
-{
-    return !(x == y);
-}

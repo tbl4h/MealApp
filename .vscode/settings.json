@@ -59,7 +59,13 @@
         "streambuf": "cpp",
         "cinttypes": "cpp",
         "typeinfo": "cpp",
-        "variant": "cpp"
+        "variant": "cpp",
+        "bitset": "cpp",
+        "condition_variable": "cpp",
+        "numbers": "cpp",
+        "shared_mutex": "cpp",
+        "stop_token": "cpp",
+        "semaphore": "cpp"
     },
     "C_Cpp.default.configurationProvider": "numaru.vscode-cmake-lite"
 }
