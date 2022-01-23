@@ -5,7 +5,7 @@
 #include <pthread.h>
 #include <string>
 #include <array>
-
+#include <type_traits>
 template <std::size_t Size> 
 class stack_checking_resource final : public std::pmr::memory_resource {
 public:
@@ -42,6 +42,9 @@ public:
   }
 
 private:
-  std::byte m_buffer[Size];
+  std::aligned_storage_t<sizeof(std::byte), alignof(std::byte)> m_buffer[Size];
   inline static std::size_t bytes_allocated = 0;
 };
+
+/*ToDo*/
+/* Change m_buffer to std::aligned_store */

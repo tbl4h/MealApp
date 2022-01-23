@@ -12,13 +12,11 @@ namespace MealParser
         bool CurlInit;
         CURLcode Res;
         std::string DownloadMemory;
-        static constexpr std::string_view Postthis{"Field=1&Field=2&Field=3"};
-        static constexpr std::string_view MainUrl{"https://www.bbcgoodfood.com/recipes/collection/family-meal-recipes?page="};
+        inline static constexpr std::string_view Postthis{"Field=1&Field=2&Field=3"};
+        inline static constexpr std::string_view MainUrl{"https://www.bbcgoodfood.com/recipes/collection/family-meal-recipes?page="};
+        inline static constexpr std::size_t PageSize = 541224;
     };
 
-    inline static int total_allocated_size = 0;
-    constexpr std::string_view MealParser::Impl::Postthis;
-    constexpr std::string_view MealParser::Impl::MainUrl;
 
     bool MealParser::initCurl()
     {
@@ -37,7 +35,7 @@ namespace MealParser
     {
         impl = std::make_unique<Impl>();
         
-        my_str.reserve(541224);
+        my_str.reserve(impl->PageSize);
         impl->CurlInit = initCurl();
     }
     MealParser::~MealParser()

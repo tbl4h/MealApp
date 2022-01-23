@@ -97,15 +97,7 @@ namespace MealsList
 
     bool [[nodiscard ("Consider to use return value.")]] MealsList::findMeal(const std::string &mealName)
     {
-        auto isInData = impl->MealsList_.find(mealName);
-        if (isInData == impl->MealsList_.end())
-        {
-            return false;
-        }
-        else
-        {
-            return true;
-        }
+        return impl->MealsList_.contains(mealName);
     }
     void MealsList::addMealsList(std::unordered_map<std::string, MealData> tmpMealsList)
     {
@@ -176,7 +168,7 @@ namespace MealsList
             my_stream << "'";
             my_stream << " );";
             impl->Sql = my_stream.str();            
-            impl->Rc = sqlite3_exec(impl->Db, impl->Sql.c_str(), MealsList::my_special_callback, NULL, &impl->ZErrMsg);
+            impl->Rc = sqlite3_exec(impl->Db, impl->Sql.c_str(), MealsList::my_special_callback, nullptr, &impl->ZErrMsg);
 
             if (impl->Rc != SQLITE_OK)
             {

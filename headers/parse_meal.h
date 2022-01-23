@@ -14,7 +14,7 @@
 #include <memory>
 #include <unordered_map>
 #include "../headers/shared_structure.h"
-#include "../headers/local_stack_allocator.h"
+#include "../headers/stack_checking_resource.h"
 
 namespace MealParser
 {    
@@ -22,7 +22,8 @@ namespace MealParser
     {
     private:
         struct Impl;
-        inline static stack_checking_resource<641224> resource;
+        inline static constexpr std::size_t OverPageSize = 641224;
+        inline static stack_checking_resource<OverPageSize> resource;
         inline static std::pmr::string my_str{&MealParser::resource};                
         std::unique_ptr<Impl> impl;
         /**
